@@ -1,0 +1,361 @@
+{
+  "homepage": {
+    "title": "필수 계산기 모음",
+    "subtitle": "모든 것을 한 곳에서",
+    "description": "일상에서 자주 사용하는 계산을 정확하고 빠르게 처리할 수 있는 전문적인 도구들을 제공합니다.",
+    "tagline": "정확하고 빠른 계산 도구",
+    "cta": "계산기 사용하기",
+    "free": "100% 무료 사용",
+    "tools_title": "프로페셔널 계산 도구",
+    "tools_description": "각 도구는 정확성과 사용성을 고려하여 전문적으로 개발되었습니다"
+  },
+  "calculators": {
+    "bmi": {
+      "title": "BMI 계산기",
+      "description": "체질량지수를 정확하게 계산하고 건강 상태를 확인하세요"
+    },
+    "converter": {
+      "title": "단위 변환기",
+      "description": "길이, 무게, 온도 등 다양한 단위를 간편하게 변환하세요"
+    },
+    "percent": {
+      "title": "퍼센트 계산기",
+      "description": "할인율, 증가율, 비율 등 퍼센트 계산을 정확하게"
+    },
+    "age": {
+      "title": "나이 계산기",
+      "description": "만 나이, 세는 나이를 포함한 상세한 나이 정보 제공"
+    },
+    "compound": {
+      "title": "복리 계산기",
+      "description": "투자와 저축의 복리 효과를 계산하여 재정 계획을 세우세요"
+    },
+    "loan": {
+      "title": "대출 계산기",
+      "description": "대출 조건에 따른 월 상환금액과 총 이자를 정확하게 계산"
+    }
+  },
+  "features": {
+    "fast": {
+      "title": "빠른 계산",
+      "description": "최적화된 알고리즘으로 즉시 정확한 결과를 제공합니다"
+    },
+    "responsive": {
+      "title": "반응형 디자인",
+      "description": "모바일, 태블릿, 데스크톱 모든 기기에서 완벽하게 작동합니다"
+    },
+    "privacy": {
+      "title": "개인정보 보호",
+      "description": "모든 계산은 브라우저에서 처리되어 개인정보가 안전합니다"
+    }
+  },
+  "common": {
+    "home": "홈",
+    "back_to_home": "홈으로",
+    "use": "사용하기",
+    "calculate": "계산하기",
+    "result": "결과",
+    "input": "입력",
+    "example": "예",
+    "guide": "가이드",
+    "tip": "팁",
+    "note": "참고사항",
+    "important": "중요 안내",
+    "important_notice": "중요 안내",
+    "investment_tip": "투자 팁",
+    "validation_error": "모든 값을 올바르게 입력해주세요",
+    "enter_number": "숫자를 입력해주세요",
+    "enter_all_values": "모든 값을 입력해주세요",
+    "calculating": "계산 중...",
+    "currency": "원",
+    "currency_symbol": "₩",
+    "years": "년",
+    "months": "개월",
+    "or": "또는",
+    "ten_million": "천만",
+    "stock_market_average": "주식시장 평균",
+    "bank_average_rate": "은행 평균 금리",
+    "long_term_investment": "장기 투자",
+    "monthly_regular_investment": "매월 정기 투자금",
+    "tools": "도구",
+    "about": "소개",
+    "copyright": "© 2025 HPLankr Tools. 모든 권리 보유."
+  },
+  "units": {
+    "currency": {
+      "symbol": "₩",
+      "name": "원",
+      "code": "KRW"
+    },
+    "length": {
+      "primary": "cm",
+      "secondary": "m",
+      "labels": {
+        "mm": "밀리미터",
+        "cm": "센티미터", 
+        "m": "미터",
+        "km": "킬로미터",
+        "in": "인치",
+        "ft": "피트",
+        "yd": "야드",
+        "mi": "마일"
+      }
+    },
+    "weight": {
+      "primary": "kg",
+      "secondary": "g",
+      "labels": {
+        "g": "그램",
+        "kg": "킬로그램",
+        "oz": "온스",
+        "lb": "파운드"
+      }
+    },
+    "temperature": {
+      "primary": "celsius",
+      "labels": {
+        "celsius": "섭씨 (°C)",
+        "fahrenheit": "화씨 (°F)"
+      }
+    }
+  },
+  "bmi": {
+    "title": "BMI 계산기",
+    "description": "키와 몸무게를 입력하여 체질량지수(BMI)를 계산하고 건강 상태를 확인하세요",
+    "height": "키",
+    "height_cm": "키 (cm)",
+    "height_ft": "키 (ft)",
+    "height_in": "키 (in)",
+    "feet": "피트",
+    "inches": "인치",
+    "weight": "몸무게", 
+    "weight_kg": "몸무게 (kg)",
+    "weight_lbs": "몸무게 (lbs)",
+    "unit_system": "단위 시스템",
+    "metric": "미터법 (cm, kg)",
+    "imperial": "야드파운드법 (ft/in, lbs)",
+    "calculate": "BMI 계산하기",
+    "chart_title": "BMI 기준표",
+    "underweight": "저체중",
+    "normal": "정상",
+    "overweight": "과체중",
+    "obese": "비만",
+    "ranges": {
+      "underweight": "18.5 미만",
+      "normal": "18.5 ~ 24.9",
+      "overweight": "25.0 ~ 29.9",
+      "obese": "30.0 이상"
+    },
+    "note": "BMI는 참고용이며, 개인의 건강 상태를 완전히 반영하지 않을 수 있습니다. 정확한 건강 진단은 전문의와 상담하시기 바랍니다."
+  },
+  "converter": {
+    "title": "단위 변환기",
+    "description": "길이, 무게, 온도 등 다양한 단위를 정확하고 빠르게 변환하세요",
+    "categories": {
+      "length": "길이",
+      "weight": "무게",
+      "temperature": "온도"
+    },
+    "input_title": "변환할 값",
+    "output_title": "변환된 값",
+    "input_label": "숫자 입력",
+    "from_unit": "변환 전 단위",
+    "to_unit": "변환 후 단위",
+    "result_placeholder": "변환 결과가 여기에 표시됩니다",
+    "calculate": "변환하기",
+    "common_title": "자주 사용하는 변환",
+    "common_examples": {
+      "meter": "1 미터",
+      "cm": "100 센티미터",
+      "kg": "1 킬로그램",
+      "pound": "2.20 파운드",
+      "celsius": "0°C",
+      "fahrenheit": "32°F",
+      "inch": "1 인치",
+      "cm_from_inch": "2.54 센티미터",
+      "pound_to_gram": "1 파운드",
+      "gram": "453.6 그램",
+      "celsius_hot": "100°C",
+      "fahrenheit_hot": "212°F"
+    }
+  },
+  "percent": {
+    "title": "퍼센트 계산기",
+    "description": "다양한 퍼센트 계산을 빠르고 정확하게 수행하세요",
+    "type_selection": "계산 유형 선택",
+    "types": {
+      "basic": {
+        "title": "A의 B% 계산",
+        "description": "100의 25% = 25",
+        "example": "100의 25% = 25"
+      },
+      "ratio": {
+        "title": "A는 B의 몇%?",
+        "description": "25는 100의 25%",
+        "example": "25는 100의 25%"
+      },
+      "change": {
+        "title": "증가/감소율",
+        "description": "100→125는 25% 증가",
+        "example": "100→125는 25% 증가"
+      },
+      "discount": {
+        "title": "할인 계산",
+        "description": "100에서 25% 할인 = 75",
+        "example": "100에서 25% 할인 = 75"
+      }
+    },
+    "input_title": "입력 값",
+    "base_value": "기준값 (A)",
+    "percentage": "퍼센트 (B%)",
+    "calculate": "계산하기",
+    "result_placeholder": "계산 결과가 여기에 표시됩니다",
+    "examples_title": "계산 예시",
+    "result_format": {
+      "basic": "{value1}의 {percent}% = {result}",
+      "ratio": "{value1}는 {value2}의 {percent}%",
+      "change": "{value1}→{value2}는 {percent}% {direction}",
+      "discount": "{value1}에서 {percent}% 할인 = {result}",
+      "increase": "증가",
+      "decrease": "감소",
+      "calculation_error": "계산 오류"
+    },
+    "labels": {
+      "previous_value": "이전 값 (A)",
+      "current_value": "현재 값 (B)",
+      "value_1": "값 1",
+      "value_2": "값 2"
+    }
+  },
+  "age": {
+    "title": "나이 계산기",
+    "description": "만 나이, 세는 나이, 연 나이를 한번에 정확하게 계산하세요",
+    "input_title": "생년월일 입력",
+    "birth_year": "태어난 년도",
+    "birth_month": "태어난 월",
+    "birth_day": "태어난 일",
+    "month_placeholder": "월을 선택하세요",
+    "day_placeholder": "일을 선택하세요",
+    "calculate": "나이 계산하기",
+    "result_placeholder": "생년월일을 입력하고 계산해보세요",
+    "birth_info": "생년월일",
+    "international_age": "만 나이",
+    "korean_age": "세는 나이",
+    "year_age": "연 나이",
+    "official_legal": "공식/법적 나이",
+    "traditional_korean": "한국 전통 방식",
+    "birth_year_minus": "올해 - 태어난 해",
+    "days_lived": "태어난 지",
+    "days_to_birthday": "다음 생일까지",
+    "explanation_title": "나이 계산 방식 설명",
+    "methods": {
+      "international": {
+        "title": "만 나이",
+        "description": "생일이 지났으면 (현재년도 - 출생년도), 생일이 안 지났으면 -1세"
+      },
+      "korean": {
+        "title": "세는 나이",
+        "description": "현재년도 - 출생년도 + 1 (한국 전통 방식)"
+      },
+      "year": {
+        "title": "연 나이",
+        "description": "현재년도 - 출생년도 (생일 무관)"
+      }
+    },
+    "note": "2023년 6월 28일부터 공식 나이는 만 나이로 통일되었습니다. 법적 문서나 공식적인 용도에는 만 나이를 사용하세요."
+  },
+  "compound": {
+    "title": "복리 계산기",
+    "description": "복리의 마법을 체험해보세요. 투자와 저축의 장기적 성장을 시뮬레이션하고 계획하세요",
+    "input_title": "투자 정보 입력",
+    "initial_amount": "초기 투자금 (원금)",
+    "annual_rate": "연간 이자율 (%)",
+    "investment_period": "투자 기간 (년)",
+    "compound_frequency": "복리 주기",
+    "monthly_contribution": "월 추가 투자금 (선택사항)",
+    "frequencies": {
+      "annually": "연 1회 (Annually)",
+      "quarterly": "분기별 (Quarterly)",
+      "monthly": "월별 (Monthly)",
+      "daily": "일별 (Daily)"
+    },
+    "result_title": "계산 결과",
+    "result_placeholder": "투자 정보를 입력하고 계산해보세요",
+    "final_amount": "최종 투자 금액",
+    "total_principal": "총 투자원금",
+    "compound_interest": "복리 수익",
+    "return_rate": "수익률",
+    "compound_advantage": "복리의 이점",
+    "simple_vs_compound": "단리 대비 추가 수익",
+    "calculate": "복리 계산하기",
+    "power_title": "복리의 힘",
+    "power_items": {
+      "time": {
+        "title": "시간의 마법",
+        "description": "시간이 길수록 복리의 효과는 기하급수적으로 증가합니다. 일찍 시작할수록 유리합니다."
+      },
+      "reinvestment": {
+        "title": "수익의 재투자",
+        "description": "얻은 수익을 다시 투자하여 수익이 수익을 낳는 선순환 구조를 만듭니다."
+      },
+      "goal": {
+        "title": "목표 달성",
+        "description": "정기적인 추가 투자와 복리의 힘으로 재정 목표를 더 빠르게 달성할 수 있습니다."
+      }
+    },
+    "tip": "\"복리는 우주에서 가장 강력한 힘이다\" - 알베르트 아인슈타인. 꾸준한 장기 투자와 복리의 힘으로 wealth building을 시작해보세요."
+  },
+  "loan": {
+    "title": "대출 계산기",
+    "description": "대출 조건을 입력하여 월 상환금액과 총 이자를 정확하게 계산하고 계획하세요",
+    "loan_types_title": "대출 유형",
+    "loan_types": {
+      "personal": {
+        "title": "개인대출",
+        "description": "신용등급 기반 무담보 대출"
+      },
+      "mortgage": {
+        "title": "주택담보대출",
+        "description": "부동산 담보 장기 대출"
+      },
+      "auto": {
+        "title": "자동차대출",
+        "description": "차량 구매를 위한 대출"
+      },
+      "business": {
+        "title": "사업자대출",
+        "description": "사업 운영 자금 대출"
+      }
+    },
+    "input_title": "대출 정보 입력",
+    "loan_amount": "대출 금액 (원)",
+    "annual_rate": "연간 이자율 (%)",
+    "loan_term": "대출 기간",
+    "years": "년",
+    "months": "개월",
+    "result_title": "계산 결과",
+    "result_placeholder": "대출 정보를 입력하고 계산해보세요",
+    "monthly_payment": "월 상환금액",
+    "loan_principal": "대출 원금",
+    "total_payment": "총 상환금액",
+    "total_interest": "총 이자",
+    "loan_period": "대출 기간",
+    "calculate": "대출 계산하기",
+    "guide_title": "대출 가이드",
+    "guide_items": {
+      "accurate": {
+        "title": "정확한 계산",
+        "description": "복리 계산 공식을 사용하여 정확한 월 상환금액과 총 이자를 계산합니다."
+      },
+      "save": {
+        "title": "이자 절약",
+        "description": "대출 기간과 이자율을 비교하여 가장 유리한 조건을 찾아보세요."
+      },
+      "plan": {
+        "title": "상환 계획",
+        "description": "월 상환 능력을 고려하여 적절한 대출 기간을 설정하세요."
+      }
+    },
+    "note": "본 계산기는 참고용으로 실제 대출 조건은 금융기관마다 다를 수 있습니다. 정확한 정보는 해당 금융기관에 문의하시기 바랍니다."
+  }
+}

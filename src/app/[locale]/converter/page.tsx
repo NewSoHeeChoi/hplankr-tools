@@ -1,9 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function Converter() {
+  const t = useTranslations()
+  
   const [category, setCategory] = useState('length')
   const [fromUnit, setFromUnit] = useState('cm')
   const [toUnit, setToUnit] = useState('inch')
@@ -12,34 +16,34 @@ export default function Converter() {
 
   const unitData = {
     length: {
-      cm: { name: '센티미터(cm)', rate: 1 },
-      m: { name: '미터(m)', rate: 0.01 },
-      inch: { name: '인치(inch)', rate: 0.393701 },
-      ft: { name: '피트(ft)', rate: 0.0328084 }
+      cm: { name: 'cm', rate: 1 },
+      m: { name: 'm', rate: 0.01 },
+      inch: { name: 'inch', rate: 0.393701 },
+      ft: { name: 'ft', rate: 0.0328084 }
     },
     weight: {
-      kg: { name: '킬로그램(kg)', rate: 1 },
-      g: { name: '그램(g)', rate: 1000 },
-      lb: { name: '파운드(lb)', rate: 2.20462 },
-      oz: { name: '온스(oz)', rate: 35.274 }
+      kg: { name: 'kg', rate: 1 },
+      g: { name: 'g', rate: 1000 },
+      lb: { name: 'lb', rate: 2.20462 },
+      oz: { name: 'oz', rate: 35.274 }
     },
     temperature: {
-      celsius: { name: '섭씨(°C)' },
-      fahrenheit: { name: '화씨(°F)' },
-      kelvin: { name: '켈빈(K)' }
+      celsius: { name: '°C' },
+      fahrenheit: { name: '°F' },
+      kelvin: { name: 'K' }
     }
   }
 
   const categories = [
-    { key: 'length', label: '길이', icon: '📏', color: 'emerald' },
-    { key: 'weight', label: '무게', icon: '⚖️', color: 'blue' },
-    { key: 'temperature', label: '온도', icon: '🌡️', color: 'red' }
+    { key: 'length', label: t('converter.categories.length'), icon: '📏', color: 'emerald' },
+    { key: 'weight', label: t('converter.categories.weight'), icon: '⚖️', color: 'blue' },
+    { key: 'temperature', label: t('converter.categories.temperature'), icon: '🌡️', color: 'red' }
   ]
 
   const convert = () => {
     const value = parseFloat(inputValue)
     if (!value && value !== 0) {
-      setResult('숫자를 입력해주세요')
+      setResult(t('common.enter_number'))
       return
     }
 
@@ -57,8 +61,8 @@ export default function Converter() {
       else if (toUnit === 'kelvin') convertedValue = celsius + 273.15
       else convertedValue = celsius
 
-      fromName = unitData.temperature[fromUnit as keyof typeof unitData.temperature].name
-      toName = unitData.temperature[toUnit as keyof typeof unitData.temperature].name
+      fromName = unitData.temperature[fromUnit as 'celsius' | 'fahrenheit' | 'kelvin'].name
+      toName = unitData.temperature[toUnit as 'celsius' | 'fahrenheit' | 'kelvin'].name
     } else if (category === 'length') {
       // 길이 변환
       const lengthUnits = unitData.length
@@ -83,7 +87,7 @@ export default function Converter() {
       toName = ''
     }
     
-    setResult(`${value} ${fromName} = ${convertedValue.toFixed(4)} ${toName}`)
+    setResult(`${value.toLocaleString()} ${fromName} = ${convertedValue.toLocaleString()} ${toName}`)
   }
 
   const handleCategoryChange = (newCategory: string) => {
@@ -141,8 +145,9 @@ export default function Converter() {
             </Link>
             <nav className="flex items-center space-x-6">
               <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
-                ← 홈으로
+                ← {t('common.back_to_home')}
               </Link>
+              <LanguageSwitcher />
             </nav>
           </div>
         </div>
@@ -156,10 +161,10 @@ export default function Converter() {
               📏
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              단위 변환기
+              {t('converter.title')}
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              길이, 무게, 온도 등 다양한 단위를 정확하고 빠르게 변환하세요
+              {t('converter.description')}
             </p>
           </div>
 
@@ -193,24 +198,24 @@ export default function Converter() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Input Section */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">변환할 값</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('converter.input_title')}</h3>
                   
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      숫자 입력
+                      {t('converter.input_label')}
                     </label>
                     <input
                       type="number"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
-                      placeholder="변환할 값을 입력하세요"
+                      placeholder={t('converter.input_label')}
                       className={`w-full px-4 py-4 border-2 border-gray-200 rounded-xl ${currentColors.focus} focus:border-transparent transition-colors text-lg font-medium`}
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      변환 전 단위
+                      {t('converter.from_unit')}
                     </label>
                     <select
                       value={fromUnit}
@@ -226,11 +231,11 @@ export default function Converter() {
 
                 {/* Output Section */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">변환된 값</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('converter.output_title')}</h3>
                   
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      변환 후 단위
+                      {t('converter.to_unit')}
                     </label>
                     <select
                       value={toUnit}
@@ -253,7 +258,7 @@ export default function Converter() {
                       </div>
                     ) : (
                       <div className="text-gray-400 text-center">
-                        변환 결과가 여기에 표시됩니다
+                        {t('converter.result_placeholder')}
                       </div>
                     )}
                   </div>
@@ -267,7 +272,7 @@ export default function Converter() {
                   className={`bg-gradient-to-r ${currentColors.bg} text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all duration-200 font-semibold text-lg transform hover:-translate-y-0.5 shadow-lg`}
                 >
                   <span className="flex items-center space-x-2">
-                    <span>변환하기</span>
+                    <span>{t('converter.calculate')}</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                     </svg>
@@ -279,15 +284,15 @@ export default function Converter() {
 
           {/* Quick Conversions */}
           <div className="mt-8 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">자주 사용하는 변환</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-6">{t('converter.common_title')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { from: '1 미터', to: '100 센티미터', category: 'length' },
-                { from: '1 킬로그램', to: '2.20 파운드', category: 'weight' },
-                { from: '0°C', to: '32°F', category: 'temperature' },
-                { from: '1 인치', to: '2.54 센티미터', category: 'length' },
-                { from: '1 파운드', to: '453.6 그램', category: 'weight' },
-                { from: '100°C', to: '212°F', category: 'temperature' }
+                { from: t('converter.common_examples.meter'), to: t('converter.common_examples.cm'), category: 'length' },
+                { from: t('converter.common_examples.kg'), to: t('converter.common_examples.pound'), category: 'weight' },
+                { from: t('converter.common_examples.celsius'), to: t('converter.common_examples.fahrenheit'), category: 'temperature' },
+                { from: t('converter.common_examples.inch'), to: t('converter.common_examples.cm_from_inch'), category: 'length' },
+                { from: t('converter.common_examples.pound_to_gram'), to: t('converter.common_examples.gram'), category: 'weight' },
+                { from: t('converter.common_examples.celsius_hot'), to: t('converter.common_examples.fahrenheit_hot'), category: 'temperature' }
               ].map((conversion, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-4 text-center">
                   <div className="text-sm text-gray-600 font-medium">{conversion.from}</div>

@@ -1,9 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { useTranslations, useLocale } from 'next-intl'
+import { Link } from '@/i18n/routing'
+import { formatCurrency, getExampleValues } from '@/lib/localization'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function CompoundInterest() {
+  const t = useTranslations()
+  const locale = useLocale() as 'ko' | 'en'
+  const examples = getExampleValues(locale)
   const [principal, setPrincipal] = useState('')
   const [rate, setRate] = useState('')
   const [time, setTime] = useState('')
@@ -22,27 +28,27 @@ export default function CompoundInterest() {
   const calculate = () => {
     const P = parseFloat(principal)
     const r = parseFloat(rate) / 100
-    const t = parseFloat(time)
+    const years = parseFloat(time)
     const n = parseFloat(compound)
     const PMT = parseFloat(monthlyContribution) || 0
 
-    if (!P || !r || !t || P <= 0 || r <= 0 || t <= 0) {
-      setResult({ error: '모든 값을 올바르게 입력해주세요' })
+    if (!P || !r || !years || P <= 0 || r <= 0 || years <= 0) {
+      setResult({ error: t('common.validation_error') })
       return
     }
 
     // Compound Interest Formula: A = P(1 + r/n)^(nt)
-    const compoundInterest = P * Math.pow((1 + r/n), (n * t))
+    const compoundInterest = P * Math.pow((1 + r/n), (n * years))
     
     // Future Value of Annuity (monthly contributions): PMT * [((1 + r/n)^(nt) - 1) / (r/n)]
-    const annuityValue = PMT > 0 ? PMT * (Math.pow(1 + r/n, n * t) - 1) / (r/n) : 0
+    const annuityValue = PMT > 0 ? PMT * (Math.pow(1 + r/n, n * years) - 1) / (r/n) : 0
     
     const totalAmount = compoundInterest + annuityValue
-    const totalPrincipal = P + (PMT * 12 * t)
+    const totalPrincipal = P + (PMT * 12 * years)
     const totalInterest = totalAmount - totalPrincipal
 
     // Simple Interest for comparison
-    const simpleInterest = P * (1 + r * t) + (PMT * 12 * t * (1 + r * t / 2))
+    const simpleInterest = P * (1 + r * years) + (PMT * 12 * years * (1 + r * years / 2))
     const compoundAdvantage = totalAmount - simpleInterest
 
     setResult({
@@ -56,10 +62,10 @@ export default function CompoundInterest() {
   }
 
   const compoundingOptions = [
-    { value: '1', label: '연 1회 (Annually)', frequency: 'annual' },
-    { value: '4', label: '분기별 (Quarterly)', frequency: 'quarterly' },
-    { value: '12', label: '월별 (Monthly)', frequency: 'monthly' },
-    { value: '365', label: '일별 (Daily)', frequency: 'daily' }
+    { value: '1', label: `${t('compound.frequencies.annually')} (Annually)`, frequency: 'annual' },
+    { value: '4', label: `${t('compound.frequencies.quarterly')} (Quarterly)`, frequency: 'quarterly' },
+    { value: '12', label: `${t('compound.frequencies.monthly')} (Monthly)`, frequency: 'monthly' },
+    { value: '365', label: `${t('compound.frequencies.daily')} (Daily)`, frequency: 'daily' }
   ]
 
 
@@ -79,8 +85,9 @@ export default function CompoundInterest() {
             </Link>
             <nav className="flex items-center space-x-6">
               <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
-                ← 홈으로
+                ← {t('common.back_to_home')}
               </Link>
+              <LanguageSwitcher />
             </nav>
           </div>
         </div>
@@ -94,10 +101,10 @@ export default function CompoundInterest() {
               💰
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              복리 계산기
+              {t('compound.title')}
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              복리의 마법을 체험해보세요. 투자와 저축의 장기적 성장을 시뮬레이션하고 계획하세요
+              {t('compound.description')}
             </p>
           </div>
 
@@ -107,27 +114,27 @@ export default function CompoundInterest() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Input Section */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">투자 정보 입력</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('compound.input_title')}</h3>
                   
                   {/* Principal Amount */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      초기 투자금 (원금)
+                      {t('compound.initial_amount')}
                     </label>
                     <input
                       type="number"
                       value={principal}
                       onChange={(e) => setPrincipal(e.target.value)}
-                      placeholder="1000000"
+                      placeholder={examples.currency}
                       className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-lg font-medium"
                     />
-                    <div className="text-sm text-gray-500 mt-1">예: 1,000,000원</div>
+                    <div className="text-sm text-gray-500 mt-1">{t('common.example')}: {t('common.currency_symbol')}{examples.currency}</div>
                   </div>
 
                   {/* Interest Rate */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      연간 이자율 (%)
+                      {t('compound.annual_rate')}
                     </label>
                     <input
                       type="number"
@@ -137,13 +144,13 @@ export default function CompoundInterest() {
                       placeholder="7.5"
                       className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-lg font-medium"
                     />
-                    <div className="text-sm text-gray-500 mt-1">예: 7.5% (주식시장 평균)</div>
+                    <div className="text-sm text-gray-500 mt-1">{t('common.example')}: 7.5% ({t('common.stock_market_average')})</div>
                   </div>
 
                   {/* Time Period */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      투자 기간 (년)
+                      {t('compound.investment_period')}
                     </label>
                     <input
                       type="number"
@@ -152,13 +159,13 @@ export default function CompoundInterest() {
                       placeholder="10"
                       className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-lg font-medium"
                     />
-                    <div className="text-sm text-gray-500 mt-1">예: 10년 장기 투자</div>
+                    <div className="text-sm text-gray-500 mt-1">{t('common.example')}: 10{t('common.years')} {t('common.long_term_investment')}</div>
                   </div>
 
                   {/* Compounding Frequency */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      복리 주기
+                      {t('compound.compound_frequency')}
                     </label>
                     <select
                       value={compound}
@@ -176,22 +183,22 @@ export default function CompoundInterest() {
                   {/* Monthly Contribution */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      월 추가 투자금 (선택사항)
+                      {t('compound.monthly_contribution')}
                     </label>
                     <input
                       type="number"
                       value={monthlyContribution}
                       onChange={(e) => setMonthlyContribution(e.target.value)}
-                      placeholder="100000"
+                      placeholder={examples.currencySmall}
                       className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-lg font-medium"
                     />
-                    <div className="text-sm text-gray-500 mt-1">매월 정기 투자금</div>
+                    <div className="text-sm text-gray-500 mt-1">{t('common.monthly_regular_investment')}</div>
                   </div>
                 </div>
 
                 {/* Result Section */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">계산 결과</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('compound.result_title')}</h3>
                   
                   {/* Result Display */}
                   <div className="bg-gray-50 rounded-xl p-6 min-h-[20rem]">
@@ -208,10 +215,10 @@ export default function CompoundInterest() {
                           {/* Main Result */}
                           <div className="text-center pb-4 border-b border-gray-200">
                             <div className="text-3xl font-bold text-emerald-600 mb-2">
-                              ₩{result.totalAmount?.toLocaleString() || '0'}
+                              {formatCurrency(result.totalAmount || 0, locale)}
                             </div>
                             <div className="text-sm text-gray-600">
-                              최종 투자 금액
+                              {t('compound.final_amount')}
                             </div>
                           </div>
 
@@ -219,25 +226,25 @@ export default function CompoundInterest() {
                           <div className="grid grid-cols-1 gap-4">
                             <div className="bg-white rounded-lg p-4 border border-gray-200">
                               <div className="flex items-center justify-between">
-                                <span className="text-sm font-medium text-gray-600">총 투자원금</span>
+                                <span className="text-sm font-medium text-gray-600">{t('compound.total_principal')}</span>
                                 <span className="text-lg font-bold text-gray-700">
-                                  ₩{result.totalPrincipal?.toLocaleString() || '0'}
+                                  {formatCurrency(result.totalPrincipal || 0, locale)}
                                 </span>
                               </div>
                             </div>
                             
                             <div className="bg-white rounded-lg p-4 border border-gray-200">
                               <div className="flex items-center justify-between">
-                                <span className="text-sm font-medium text-gray-600">복리 수익</span>
+                                <span className="text-sm font-medium text-gray-600">{t('compound.compound_interest')}</span>
                                 <span className="text-lg font-bold text-emerald-600">
-                                  ₩{result.totalInterest?.toLocaleString() || '0'}
+                                  {formatCurrency(result.totalInterest || 0, locale)}
                                 </span>
                               </div>
                             </div>
 
                             <div className="bg-white rounded-lg p-4 border border-gray-200">
                               <div className="flex items-center justify-between">
-                                <span className="text-sm font-medium text-gray-600">수익률</span>
+                                <span className="text-sm font-medium text-gray-600">{t('compound.return_rate')}</span>
                                 <span className="text-lg font-bold text-emerald-600">
                                   {result.interestRate?.toFixed(1) || '0'}%
                                 </span>
@@ -247,13 +254,13 @@ export default function CompoundInterest() {
                             {(result.compoundAdvantage || 0) > 0 && (
                               <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg p-4 border border-emerald-200">
                                 <div className="flex items-center justify-between">
-                                  <span className="text-sm font-medium text-emerald-700">복리의 이점</span>
+                                  <span className="text-sm font-medium text-emerald-700">{t('compound.compound_advantage')}</span>
                                   <span className="text-lg font-bold text-emerald-600">
-                                    +₩{result.compoundAdvantage?.toLocaleString() || '0'}
+                                    +{formatCurrency(result.compoundAdvantage || 0, locale)}
                                   </span>
                                 </div>
                                 <div className="text-xs text-emerald-600 mt-1">
-                                  단리 대비 추가 수익
+                                  {t('compound.simple_vs_compound')}
                                 </div>
                               </div>
                             )}
@@ -264,7 +271,7 @@ export default function CompoundInterest() {
                       <div className="flex items-center justify-center h-full">
                         <div className="text-center text-gray-400">
                           <div className="text-4xl mb-4">💰</div>
-                          <div>투자 정보를 입력하고 계산해보세요</div>
+                          <div>{t('compound.result_placeholder')}</div>
                         </div>
                       </div>
                     )}
@@ -279,7 +286,7 @@ export default function CompoundInterest() {
                   className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all duration-200 font-semibold text-lg transform hover:-translate-y-0.5 shadow-lg"
                 >
                   <span className="flex items-center space-x-2">
-                    <span>복리 계산하기</span>
+                    <span>{t('compound.calculate')}</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-4 4" />
                     </svg>
@@ -291,25 +298,25 @@ export default function CompoundInterest() {
 
           {/* Information Section */}
           <div className="mt-8 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">복리의 힘</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-6">{t('compound.power_title')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
                   icon: '⏰',
-                  title: '시간의 마법',
-                  description: '시간이 길수록 복리의 효과는 기하급수적으로 증가합니다. 일찍 시작할수록 유리합니다.',
+                  title: t('compound.power_items.time.title'),
+                  description: t('compound.power_items.time.description'),
                   color: 'emerald'
                 },
                 {
                   icon: '📈',
-                  title: '수익의 재투자',
-                  description: '얻은 수익을 다시 투자하여 수익이 수익을 낳는 선순환 구조를 만듭니다.',
+                  title: t('compound.power_items.reinvestment.title'),
+                  description: t('compound.power_items.reinvestment.description'),
                   color: 'blue'
                 },
                 {
                   icon: '🎯',
-                  title: '목표 달성',
-                  description: '정기적인 추가 투자와 복리의 힘으로 재정 목표를 더 빠르게 달성할 수 있습니다.',
+                  title: t('compound.power_items.goal.title'),
+                  description: t('compound.power_items.goal.description'),
                   color: 'green'
                 }
               ].map((item, index) => {
@@ -334,9 +341,8 @@ export default function CompoundInterest() {
 
             <div className="mt-6 p-4 bg-yellow-50 rounded-xl border border-yellow-100">
               <p className="text-sm text-gray-700 leading-relaxed">
-                <strong className="text-yellow-700">💡 투자 팁:</strong> 
-&quot;복리는 우주에서 가장 강력한 힘이다&quot; - 알베르트 아인슈타인. 
-                꾸준한 장기 투자와 복리의 힘으로 wealth building을 시작해보세요.
+                <strong className="text-yellow-700">💡 {t('common.investment_tip')}:</strong> 
+                {t('compound.tip')}
               </p>
             </div>
           </div>

@@ -1,0 +1,361 @@
+{
+  "homepage": {
+    "title": "Essential Calculator Collection",
+    "subtitle": "Everything in One Place",
+    "description": "Provide professional tools that can accurately and quickly process calculations frequently used in daily life.",
+    "tagline": "Accurate and Fast Calculation Tools",
+    "cta": "Use Calculators",
+    "free": "100% Free",
+    "tools_title": "Professional Calculation Tools",
+    "tools_description": "Each tool is professionally developed considering accuracy and usability"
+  },
+  "calculators": {
+    "bmi": {
+      "title": "BMI Calculator",
+      "description": "Calculate your body mass index accurately and check your health status"
+    },
+    "converter": {
+      "title": "Unit Converter", 
+      "description": "Easily convert various units such as length, weight, temperature"
+    },
+    "percent": {
+      "title": "Percentage Calculator",
+      "description": "Calculate percentages accurately for discounts, increases, ratios"
+    },
+    "age": {
+      "title": "Age Calculator",
+      "description": "Detailed age information including international age and Korean age"
+    },
+    "compound": {
+      "title": "Compound Interest Calculator",
+      "description": "Calculate compound interest effects of investment and savings for financial planning"
+    },
+    "loan": {
+      "title": "Loan Calculator",
+      "description": "Calculate monthly payments and total interest accurately based on loan terms"
+    }
+  },
+  "features": {
+    "fast": {
+      "title": "Fast Calculation",
+      "description": "Provide immediate and accurate results with optimized algorithms"
+    },
+    "responsive": {
+      "title": "Responsive Design", 
+      "description": "Works perfectly on all devices: mobile, tablet, desktop"
+    },
+    "privacy": {
+      "title": "Privacy Protection",
+      "description": "All calculations are processed in the browser, keeping your personal information safe"
+    }
+  },
+  "common": {
+    "home": "Home",
+    "back_to_home": "Back to Home",
+    "use": "Use",
+    "calculate": "Calculate",
+    "result": "Result",
+    "input": "Input",
+    "example": "Example",
+    "guide": "Guide",
+    "tip": "Tip",
+    "note": "Note",
+    "important": "Important",
+    "important_notice": "Important Notice",
+    "investment_tip": "Investment Tip",
+    "validation_error": "Please enter all values correctly",
+    "enter_number": "Please enter a number",
+    "enter_all_values": "Please enter all values",
+    "calculating": "Calculating...",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "years": " years",
+    "months": " months",
+    "or": "or",
+    "ten_million": " ten million",
+    "stock_market_average": "stock market average",
+    "bank_average_rate": "bank average rate",
+    "long_term_investment": "long-term investment",
+    "monthly_regular_investment": "Monthly regular investment",
+    "tools": "Tools",
+    "about": "About",
+    "copyright": "© 2025 HPLankr Tools. All rights reserved."
+  },
+  "units": {
+    "currency": {
+      "symbol": "$",
+      "name": "USD",
+      "code": "USD"
+    },
+    "length": {
+      "primary": "ft",
+      "secondary": "in",
+      "labels": {
+        "mm": "millimeters",
+        "cm": "centimeters", 
+        "m": "meters",
+        "km": "kilometers",
+        "in": "inches",
+        "ft": "feet",
+        "yd": "yards",
+        "mi": "miles"
+      }
+    },
+    "weight": {
+      "primary": "lbs",
+      "secondary": "oz",
+      "labels": {
+        "g": "grams",
+        "kg": "kilograms",
+        "oz": "ounces",
+        "lb": "pounds"
+      }
+    },
+    "temperature": {
+      "primary": "fahrenheit",
+      "labels": {
+        "celsius": "Celsius (°C)",
+        "fahrenheit": "Fahrenheit (°F)"
+      }
+    }
+  },
+  "bmi": {
+    "title": "BMI Calculator",
+    "description": "Enter your height and weight to calculate your Body Mass Index (BMI) and check your health status",
+    "height": "Height",
+    "height_cm": "Height (cm)",
+    "height_ft": "Height (ft)",
+    "height_in": "Height (in)",
+    "feet": "Feet",
+    "inches": "Inches",
+    "weight": "Weight", 
+    "weight_kg": "Weight (kg)",
+    "weight_lbs": "Weight (lbs)",
+    "unit_system": "Unit System",
+    "metric": "Metric (cm, kg)",
+    "imperial": "Imperial (ft/in, lbs)",
+    "calculate": "Calculate BMI",
+    "chart_title": "BMI Chart",
+    "underweight": "Underweight",
+    "normal": "Normal",
+    "overweight": "Overweight", 
+    "obese": "Obese",
+    "ranges": {
+      "underweight": "Under 18.5",
+      "normal": "18.5 ~ 24.9",
+      "overweight": "25.0 ~ 29.9", 
+      "obese": "30.0 and above"
+    },
+    "note": "BMI is for reference only and may not fully reflect individual health status. Please consult with a healthcare professional for accurate health assessment."
+  },
+  "converter": {
+    "title": "Unit Converter",
+    "description": "Convert various units such as length, weight, temperature accurately and quickly",
+    "categories": {
+      "length": "Length",
+      "weight": "Weight", 
+      "temperature": "Temperature"
+    },
+    "input_title": "Value to Convert",
+    "output_title": "Converted Value",
+    "input_label": "Enter number",
+    "from_unit": "From Unit",
+    "to_unit": "To Unit",
+    "result_placeholder": "Conversion result will be displayed here",
+    "calculate": "Convert",
+    "common_title": "Common Conversions",
+    "common_examples": {
+      "meter": "1 meter",
+      "cm": "100 centimeters", 
+      "kg": "1 kilogram",
+      "pound": "2.20 pounds",
+      "celsius": "0°C",
+      "fahrenheit": "32°F",
+      "inch": "1 inch", 
+      "cm_from_inch": "2.54 centimeters",
+      "pound_to_gram": "1 pound",
+      "gram": "453.6 grams",
+      "celsius_hot": "100°C",
+      "fahrenheit_hot": "212°F"
+    }
+  },
+  "percent": {
+    "title": "Percentage Calculator",
+    "description": "Perform various percentage calculations quickly and accurately",
+    "type_selection": "Select Calculation Type",
+    "types": {
+      "basic": {
+        "title": "A% of B Calculation",
+        "description": "100% of 25 = 25",
+        "example": "100 × 25% = 25"
+      },
+      "ratio": {
+        "title": "A is what % of B?",
+        "description": "25 is 25% of 100", 
+        "example": "25 is 25% of 100"
+      },
+      "change": {
+        "title": "Increase/Decrease Rate",
+        "description": "100→125 is 25% increase",
+        "example": "100→125 is 25% increase"
+      },
+      "discount": {
+        "title": "Discount Calculation", 
+        "description": "25% off 100 = 75",
+        "example": "25% off 100 = 75"
+      }
+    },
+    "input_title": "Input Values",
+    "base_value": "Base Value (A)",
+    "percentage": "Percentage (B%)",
+    "calculate": "Calculate",
+    "result_placeholder": "Calculation result will be displayed here",
+    "examples_title": "Calculation Examples",
+    "result_format": {
+      "basic": "{value1} × {percent}% = {result}",
+      "ratio": "{value1} is {percent}% of {value2}",
+      "change": "{value1}→{value2} is {percent}% {direction}",
+      "discount": "{percent}% off {value1} = {result}",
+      "increase": "increase",
+      "decrease": "decrease",
+      "calculation_error": "Calculation error"
+    },
+    "labels": {
+      "previous_value": "Previous Value (A)",
+      "current_value": "Current Value (B)",
+      "value_1": "Value 1",
+      "value_2": "Value 2"
+    }
+  },
+  "age": {
+    "title": "Age Calculator", 
+    "description": "Calculate international age, Korean age, and year age accurately at once",
+    "input_title": "Enter Birth Date",
+    "birth_year": "Birth Year",
+    "birth_month": "Birth Month", 
+    "birth_day": "Birth Day",
+    "month_placeholder": "Select month",
+    "day_placeholder": "Select day",
+    "calculate": "Calculate Age",
+    "result_placeholder": "Enter your birth date and calculate",
+    "birth_info": "Birth Date",
+    "international_age": "International Age",
+    "korean_age": "Korean Age", 
+    "year_age": "Year Age",
+    "official_legal": "Official/Legal Age",
+    "traditional_korean": "Traditional Korean Method",
+    "birth_year_minus": "Current Year - Birth Year",
+    "days_lived": "Days Lived",
+    "days_to_birthday": "Days to Next Birthday",
+    "explanation_title": "Age Calculation Methods",
+    "methods": {
+      "international": {
+        "title": "International Age",
+        "description": "If birthday has passed: (current year - birth year), if not: -1 year"
+      },
+      "korean": {
+        "title": "Korean Age",
+        "description": "Current year - birth year + 1 (Traditional Korean method)"
+      },
+      "year": {
+        "title": "Year Age", 
+        "description": "Current year - birth year (regardless of birthday)"
+      }
+    },
+    "note": "Since June 28, 2023, the official age has been unified to international age. Use international age for legal documents or official purposes."
+  },
+  "compound": {
+    "title": "Compound Interest Calculator",
+    "description": "Experience the magic of compound interest. Simulate and plan long-term growth of investment and savings",
+    "input_title": "Investment Information",
+    "initial_amount": "Initial Investment (Principal)",
+    "annual_rate": "Annual Interest Rate (%)",
+    "investment_period": "Investment Period (Years)", 
+    "compound_frequency": "Compounding Frequency",
+    "monthly_contribution": "Monthly Additional Investment (Optional)",
+    "frequencies": {
+      "annually": "Annually",
+      "quarterly": "Quarterly", 
+      "monthly": "Monthly",
+      "daily": "Daily"
+    },
+    "result_title": "Calculation Result",
+    "result_placeholder": "Enter investment information and calculate",
+    "final_amount": "Final Investment Amount",
+    "total_principal": "Total Principal",
+    "compound_interest": "Compound Interest",
+    "return_rate": "Return Rate", 
+    "compound_advantage": "Compound Advantage",
+    "simple_vs_compound": "Additional return vs simple interest",
+    "calculate": "Calculate Compound Interest",
+    "power_title": "The Power of Compound Interest",
+    "power_items": {
+      "time": {
+        "title": "Magic of Time",
+        "description": "The longer the time, the greater the compound effect grows exponentially. The earlier you start, the better."
+      },
+      "reinvestment": {
+        "title": "Reinvestment of Returns", 
+        "description": "Create a virtuous cycle where returns generate more returns by reinvesting earned profits."
+      },
+      "goal": {
+        "title": "Goal Achievement",
+        "description": "Achieve financial goals faster through regular additional investments and the power of compound interest."
+      }
+    },
+    "tip": "\"Compound interest is the most powerful force in the universe\" - Albert Einstein. Start wealth building with consistent long-term investment and the power of compound interest."
+  },
+  "loan": {  
+    "title": "Loan Calculator",
+    "description": "Enter loan terms to accurately calculate monthly payments and total interest for planning",
+    "loan_types_title": "Loan Types",
+    "loan_types": {
+      "personal": {
+        "title": "Personal Loan",
+        "description": "Unsecured loan based on credit rating"
+      },
+      "mortgage": {
+        "title": "Mortgage Loan", 
+        "description": "Long-term loan secured by real estate"
+      },
+      "auto": {
+        "title": "Auto Loan",
+        "description": "Loan for vehicle purchase"
+      },
+      "business": {
+        "title": "Business Loan",
+        "description": "Loan for business operating funds"
+      }
+    },
+    "input_title": "Loan Information",
+    "loan_amount": "Loan Amount",
+    "annual_rate": "Annual Interest Rate (%)",
+    "loan_term": "Loan Term",
+    "years": "Years",
+    "months": "Months", 
+    "result_title": "Calculation Result",
+    "result_placeholder": "Enter loan information and calculate",
+    "monthly_payment": "Monthly Payment",
+    "loan_principal": "Loan Principal",
+    "total_payment": "Total Payment",
+    "total_interest": "Total Interest",
+    "loan_period": "Loan Period",
+    "calculate": "Calculate Loan",
+    "guide_title": "Loan Guide",
+    "guide_items": {
+      "accurate": {
+        "title": "Accurate Calculation",
+        "description": "Calculate accurate monthly payments and total interest using compound interest formula."
+      },
+      "save": {
+        "title": "Interest Savings", 
+        "description": "Compare loan terms and interest rates to find the most favorable conditions."
+      },
+      "plan": {
+        "title": "Repayment Plan",
+        "description": "Set appropriate loan term considering your monthly repayment capacity."
+      }
+    },
+    "note": "This calculator is for reference only. Actual loan conditions may vary by financial institution. Please contact the relevant financial institution for accurate information."
+  }
+}
