@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 import Header from './Header'
+import AdBanner from '@/components/ads/AdBanner'
+import AdUnit from '@/components/ads/AdUnit'
 
 interface CalculatorLayoutProps {
   children: ReactNode
@@ -38,6 +40,9 @@ export default function CalculatorLayout({
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
+          {/* 헤더 광고 */}
+          <AdBanner position="header" className="mb-8" />
+
           {/* Page Header */}
           <div className="text-center mb-8 sm:mb-12">
             <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${iconColorClasses[colorScheme]} rounded-2xl text-white text-2xl mb-6 shadow-lg`}>
@@ -51,7 +56,31 @@ export default function CalculatorLayout({
             </p>
           </div>
 
+          {/* 본문 상단 광고 */}
+          <div className="mb-8">
+            <AdUnit
+              adSlot="3456789012"
+              style={{ display: 'block', textAlign: 'center', marginBottom: '2rem' }}
+              className="content-top-ad"
+            />
+          </div>
+
           {children}
+
+          {/* 본문 하단 광고 */}
+          <div className="mt-8">
+            <AdUnit
+              adSlot="3456789012"
+              style={{ display: 'block', textAlign: 'center', marginTop: '2rem' }}
+              className="content-bottom-ad"
+            />
+          </div>
+
+          {/* 푸터 광고 */}
+          <AdBanner position="footer" className="mt-8" />
+
+          {/* 모바일 광고 */}
+          <AdBanner position="mobile" className="mt-4" />
         </div>
       </div>
     </div>

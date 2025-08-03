@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import './globals.css'
+import GoogleAdsense from '@/components/GoogleAdsense'
 
 type Props = {
   children: ReactNode
@@ -41,13 +42,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-          crossOrigin="anonymous"
-        />
       </head>
       <body>
+        <GoogleAdsense publisherId={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXXXXXXXX'} />
         {children}
       </body>
     </html>
