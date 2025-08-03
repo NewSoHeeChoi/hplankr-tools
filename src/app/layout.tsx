@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import './globals.css'
 import GoogleAdsense from '@/components/GoogleAdsense'
+import AutoAds from '@/components/AutoAds'
 
 type Props = {
   children: ReactNode
@@ -44,7 +45,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
       </head>
       <body>
-        <GoogleAdsense publisherId={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXXXXXXXX'} />
+        <GoogleAdsense publisherId={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-3425562734637251'} />
+        <AutoAds />
         {children}
       </body>
     </html>

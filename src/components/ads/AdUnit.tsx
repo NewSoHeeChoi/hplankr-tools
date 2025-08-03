@@ -33,7 +33,7 @@ export default function AdUnit({
       <ins
         className="adsbygoogle"
         style={style}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" // 여기에 실제 게시자 ID 입력
+        data-ad-client="ca-pub-3425562734637251"
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive={fullWidthResponsive.toString()}

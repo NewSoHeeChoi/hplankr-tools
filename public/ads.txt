@@ -1,6 +1,6 @@
-# ads.txt file for tools.hplankr.com
-# Google AdSense
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# ads.txt file for calc.hplankr.com
+# Google AdSense - 기존 hplankr.com 계정 활용
+google.com, pub-3425562734637251, DIRECT, f08c47fec0942fa0
 
 # 추가 광고 네트워크가 있다면 여기에 추가
 # 예시:
