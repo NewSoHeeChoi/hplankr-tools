@@ -1,0 +1,54 @@
+{
+  "title": "Essential Calculator Collection",
+  "subtitle": "Everything in One Place",
+  "description": "Provide professional tools that can accurately and quickly process calculations frequently used in daily life.",
+  "tagline": "Accurate and Fast Calculation Tools",
+  "cta": "Use Calculators",
+  "free": "100% Free",
+  "tools_title": "Professional Calculation Tools",
+  "tools_description": "Each tool is professionally developed considering accuracy and usability",
+  "calculators": {
+    "bmi": {
+      "title": "BMI Calculator",
+      "description": "Calculate your body mass index accurately and check your health status"
+    },
+    "converter": {
+      "title": "Unit Converter", 
+      "description": "Easily convert various units such as length, weight, temperature"
+    },
+    "percent": {
+      "title": "Percentage Calculator",
+      "description": "Calculate percentages accurately for discounts, increases, ratios"
+    },
+    "age": {
+      "title": "Age Calculator",
+      "description": "Detailed age information including international age and Korean age"
+    },
+    "compound": {
+      "title": "Compound Interest Calculator",
+      "description": "Calculate compound interest effects of investment and savings for financial planning"
+    },
+    "loan": {
+      "title": "Loan Calculator",
+      "description": "Calculate monthly payments and total interest accurately based on loan terms"
+    },
+    "tip": {
+      "title": "Tip Calculator",
+      "description": "Calculate tip and bill splitting easily for dining expenses"
+    }
+  },
+  "features": {
+    "fast": {
+      "title": "Fast Calculation",
+      "description": "Provide immediate and accurate results with optimized algorithms"
+    },
+    "responsive": {
+      "title": "Responsive Design", 
+      "description": "Works perfectly on all devices: mobile, tablet, desktop"
+    },
+    "privacy": {
+      "title": "Privacy Protection",
+      "description": "All calculations are processed in the browser, keeping your personal information safe"
+    }
+  }
+}

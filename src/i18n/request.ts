@@ -9,9 +9,12 @@ export default getRequestConfig(async ({requestLocale}) => {
   if (!locale || !routing.locales.includes(locale as 'ko' | 'en')) {
     locale = routing.defaultLocale;
   }
+
+  // Load the unified message file
+  const messages = await import(`../../messages/${locale}.json`);
  
   return {
     locale,
-    messages: (await import(`../../messages/${locale}.json`)).default
+    messages: messages.default
   };
 });

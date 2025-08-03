@@ -1,0 +1,54 @@
+{
+  "title": "필수 계산기 모음",
+  "subtitle": "모든 것을 한 곳에서",
+  "description": "일상에서 자주 사용하는 계산을 정확하고 빠르게 처리할 수 있는 전문적인 도구들을 제공합니다.",
+  "tagline": "정확하고 빠른 계산 도구",
+  "cta": "계산기 사용하기",
+  "free": "100% 무료 사용",
+  "tools_title": "프로페셔널 계산 도구",
+  "tools_description": "각 도구는 정확성과 사용성을 고려하여 전문적으로 개발되었습니다",
+  "calculators": {
+    "bmi": {
+      "title": "BMI 계산기",
+      "description": "체질량지수를 정확하게 계산하고 건강 상태를 확인하세요"
+    },
+    "converter": {
+      "title": "단위 변환기",
+      "description": "길이, 무게, 온도 등 다양한 단위를 간편하게 변환하세요"
+    },
+    "percent": {
+      "title": "퍼센트 계산기",
+      "description": "할인율, 증가율, 비율 등 퍼센트 계산을 정확하게"
+    },
+    "age": {
+      "title": "나이 계산기",
+      "description": "만 나이, 세는 나이를 포함한 상세한 나이 정보 제공"
+    },
+    "compound": {
+      "title": "복리 계산기",
+      "description": "투자와 저축의 복리 효과를 계산하여 재정 계획을 세우세요"
+    },
+    "loan": {
+      "title": "대출 계산기",
+      "description": "대출 조건에 따른 월 상환금액과 총 이자를 정확하게 계산"
+    },
+    "tip": {
+      "title": "팁 계산기",
+      "description": "음식값과 팁을 계산하여 더치페이까지 간편하게"
+    }
+  },
+  "features": {
+    "fast": {
+      "title": "빠른 계산",
+      "description": "최적화된 알고리즘으로 즉시 정확한 결과를 제공합니다"
+    },
+    "responsive": {
+      "title": "반응형 디자인",
+      "description": "모바일, 태블릿, 데스크톱 모든 기기에서 완벽하게 작동합니다"
+    },
+    "privacy": {
+      "title": "개인정보 보호",
+      "description": "모든 계산은 브라우저에서 처리되어 개인정보가 안전합니다"
+    }
+  }
+}

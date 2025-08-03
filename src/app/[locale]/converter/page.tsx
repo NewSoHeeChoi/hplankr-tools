@@ -2,11 +2,10 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/routing'
-import LanguageSwitcher from '@/components/LanguageSwitcher'
+import CalculatorLayout from '@/components/shared/CalculatorLayout'
 
 export default function Converter() {
-  const t = useTranslations()
+  const t = useTranslations('converter')
   
   const [category, setCategory] = useState('length')
   const [fromUnit, setFromUnit] = useState('cm')
@@ -35,9 +34,9 @@ export default function Converter() {
   }
 
   const categories = [
-    { key: 'length', label: t('converter.categories.length'), icon: '📏', color: 'emerald' },
-    { key: 'weight', label: t('converter.categories.weight'), icon: '⚖️', color: 'blue' },
-    { key: 'temperature', label: t('converter.categories.temperature'), icon: '🌡️', color: 'red' }
+    { key: 'length', label: t('categories.length'), icon: '📏', color: 'emerald' },
+    { key: 'weight', label: t('categories.weight'), icon: '⚖️', color: 'blue' },
+    { key: 'temperature', label: t('categories.temperature'), icon: '🌡️', color: 'red' }
   ]
 
   const convert = () => {
@@ -130,43 +129,12 @@ export default function Converter() {
   const currentColors = getColorClasses(categories.find(cat => cat.key === category)?.color || 'blue')
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">H</span>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                HPLankr Tools
-              </span>
-            </Link>
-            <nav className="flex items-center space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
-                ← {t('common.back_to_home')}
-              </Link>
-              <LanguageSwitcher />
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="max-w-4xl mx-auto">
-          {/* Page Header */}
-          <div className="text-center mb-8 sm:mb-12">
-            <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${currentColors.bg} rounded-2xl text-white text-2xl mb-6 shadow-lg`}>
-              📏
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              {t('converter.title')}
-            </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {t('converter.description')}
-            </p>
-          </div>
+    <CalculatorLayout
+      title={t('title')}
+      description={t('description')}
+      icon="📏"
+      colorScheme="emerald"
+    >
 
           {/* Category Tabs */}
           <div className="mb-8">
@@ -198,24 +166,24 @@ export default function Converter() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Input Section */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('converter.input_title')}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('input_title')}</h3>
                   
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      {t('converter.input_label')}
+                      {t('input_label')}
                     </label>
                     <input
                       type="number"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
-                      placeholder={t('converter.input_label')}
+                      placeholder={t('input_label')}
                       className={`w-full px-4 py-4 border-2 border-gray-200 rounded-xl ${currentColors.focus} focus:border-transparent transition-colors text-lg font-medium`}
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      {t('converter.from_unit')}
+                      {t('from_unit')}
                     </label>
                     <select
                       value={fromUnit}
@@ -231,11 +199,11 @@ export default function Converter() {
 
                 {/* Output Section */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('converter.output_title')}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('output_title')}</h3>
                   
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      {t('converter.to_unit')}
+                      {t('to_unit')}
                     </label>
                     <select
                       value={toUnit}
@@ -258,7 +226,7 @@ export default function Converter() {
                       </div>
                     ) : (
                       <div className="text-gray-400 text-center">
-                        {t('converter.result_placeholder')}
+                        {t('result_placeholder')}
                       </div>
                     )}
                   </div>
@@ -272,7 +240,7 @@ export default function Converter() {
                   className={`bg-gradient-to-r ${currentColors.bg} text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all duration-200 font-semibold text-lg transform hover:-translate-y-0.5 shadow-lg`}
                 >
                   <span className="flex items-center space-x-2">
-                    <span>{t('converter.calculate')}</span>
+                    <span>{t('calculate')}</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                     </svg>
@@ -284,15 +252,15 @@ export default function Converter() {
 
           {/* Quick Conversions */}
           <div className="mt-8 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">{t('converter.common_title')}</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-6">{t('common_title')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { from: t('converter.common_examples.meter'), to: t('converter.common_examples.cm'), category: 'length' },
-                { from: t('converter.common_examples.kg'), to: t('converter.common_examples.pound'), category: 'weight' },
-                { from: t('converter.common_examples.celsius'), to: t('converter.common_examples.fahrenheit'), category: 'temperature' },
-                { from: t('converter.common_examples.inch'), to: t('converter.common_examples.cm_from_inch'), category: 'length' },
-                { from: t('converter.common_examples.pound_to_gram'), to: t('converter.common_examples.gram'), category: 'weight' },
-                { from: t('converter.common_examples.celsius_hot'), to: t('converter.common_examples.fahrenheit_hot'), category: 'temperature' }
+                { from: t('common_examples.meter'), to: t('common_examples.cm'), category: 'length' },
+                { from: t('common_examples.kg'), to: t('common_examples.pound'), category: 'weight' },
+                { from: t('common_examples.celsius'), to: t('common_examples.fahrenheit'), category: 'temperature' },
+                { from: t('common_examples.inch'), to: t('common_examples.cm_from_inch'), category: 'length' },
+                { from: t('common_examples.pound_to_gram'), to: t('common_examples.gram'), category: 'weight' },
+                { from: t('common_examples.celsius_hot'), to: t('common_examples.fahrenheit_hot'), category: 'temperature' }
               ].map((conversion, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-4 text-center">
                   <div className="text-sm text-gray-600 font-medium">{conversion.from}</div>
@@ -302,8 +270,6 @@ export default function Converter() {
               ))}
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </CalculatorLayout>
   )
 }

@@ -2,12 +2,12 @@
 
 import { useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
-import { Link } from '@/i18n/routing'
 import { feetInchesToCm, lbsToKg } from '@/lib/localization'
-import LanguageSwitcher from '@/components/LanguageSwitcher'
+import CalculatorLayout from '@/components/shared/CalculatorLayout'
 
 export default function BMI() {
-  const t = useTranslations()
+  const t = useTranslations('bmi')
+  const tc = useTranslations('common')
   const locale = useLocale() as 'ko' | 'en'
   
   const [unitSystem, setUnitSystem] = useState<'metric' | 'imperial'>(locale === 'en' ? 'imperial' : 'metric')
@@ -19,11 +19,8 @@ export default function BMI() {
   const [bmiValue, setBmiValue] = useState<number | null>(null)
   const [isCalculating, setIsCalculating] = useState(false)
 
-  const calculate = async () => {
+  const calculate = () => {
     setIsCalculating(true)
-    
-    // 짧은 지연으로 로딩 애니메이션 표시
-    await new Promise(resolve => setTimeout(resolve, 300))
     
     let heightInCm: number
     let weightInKg: number
@@ -33,7 +30,7 @@ export default function BMI() {
       const f = parseFloat(feet)
       const i = parseFloat(inches) || 0
       if (!f || f <= 0) {
-        setResult(t('common.validation_error'))
+        setResult(tc('validation_error'))
         setBmiValue(null)
         setIsCalculating(false)
         return
@@ -42,7 +39,7 @@ export default function BMI() {
     } else {
       const h = parseFloat(height)
       if (!h || h <= 0) {
-        setResult(t('common.validation_error'))
+        setResult(tc('validation_error'))
         setBmiValue(null)
         setIsCalculating(false)
         return
@@ -54,7 +51,7 @@ export default function BMI() {
     if (unitSystem === 'imperial') {
       const w = parseFloat(weight)
       if (!w || w <= 0) {
-        setResult(t('common.validation_error'))
+        setResult(tc('validation_error'))
         setBmiValue(null)
         setIsCalculating(false)
         return
@@ -63,7 +60,7 @@ export default function BMI() {
     } else {
       const w = parseFloat(weight)
       if (!w || w <= 0) {
-        setResult(t('common.validation_error'))
+        setResult(tc('validation_error'))
         setBmiValue(null)
         setIsCalculating(false)
         return
@@ -77,13 +74,13 @@ export default function BMI() {
     
     let status = ''
     if (bmi < 18.5) {
-      status = t('bmi.underweight')
+      status = t('underweight')
     } else if (bmi < 25) {
-      status = t('bmi.normal')
+      status = t('normal')
     } else if (bmi < 30) {
-      status = t('bmi.overweight')
+      status = t('overweight')
     } else {
-      status = t('bmi.obese')
+      status = t('obese')
     }
     
     setResult(`BMI ${bmi.toFixed(1)} - ${status}`)
@@ -98,43 +95,12 @@ export default function BMI() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">H</span>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                HPLankr Tools
-              </span>
-            </Link>
-            <nav className="flex items-center space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
-                ← {t('common.back_to_home')}
-              </Link>
-              <LanguageSwitcher />
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="max-w-2xl mx-auto">
-          {/* Page Header */}
-          <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl text-white text-2xl mb-6 shadow-lg">
-              ⚖️
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              {t('bmi.title')}
-            </h1>
-            <p className="text-lg text-gray-600 max-w-xl mx-auto">
-              {t('bmi.description')}
-            </p>
-          </div>
+    <CalculatorLayout
+      title={t('title')}
+      description={t('description')}
+      icon="⚖️"
+      colorScheme="blue"
+    >
 
           {/* Calculator Card */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
@@ -143,7 +109,7 @@ export default function BMI() {
                 {/* Unit System Selector */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    {t('bmi.unit_system')}
+                    {t('unit_system')}
                   </label>
                   <div className="flex space-x-4">
                     <button
@@ -154,7 +120,7 @@ export default function BMI() {
                           : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
                       }`}
                     >
-                      {t('bmi.metric')}
+                      {t('metric')}
                     </button>
                     <button
                       onClick={() => setUnitSystem('imperial')}
@@ -164,7 +130,7 @@ export default function BMI() {
                           : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
                       }`}
                     >
-                      {t('bmi.imperial')}
+                      {t('imperial')}
                     </button>
                   </div>
                 </div>
@@ -172,7 +138,7 @@ export default function BMI() {
                 {/* Height Input */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    {unitSystem === 'metric' ? t('bmi.height_cm') : t('bmi.height')}
+                    {unitSystem === 'metric' ? t('height_cm') : t('height')}
                   </label>
                   {unitSystem === 'metric' ? (
                     <div className="relative">
@@ -198,7 +164,7 @@ export default function BMI() {
                           className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-lg font-medium"
                         />
                         <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-medium">
-                          {t('bmi.feet')}
+                          {t('feet')}
                         </div>
                       </div>
                       <div className="flex-1 relative">
@@ -210,7 +176,7 @@ export default function BMI() {
                           className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-lg font-medium"
                         />
                         <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-medium">
-                          {t('bmi.inches')}
+                          {t('inches')}
                         </div>
                       </div>
                     </div>
@@ -220,7 +186,7 @@ export default function BMI() {
                 {/* Weight Input */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    {unitSystem === 'metric' ? t('bmi.weight_kg') : t('bmi.weight_lbs')}
+                    {unitSystem === 'metric' ? t('weight_kg') : t('weight_lbs')}
                   </label>
                   <div className="relative">
                     <input 
@@ -252,10 +218,10 @@ export default function BMI() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      {t('common.calculating')}
+                      {tc('calculating')}
                     </span>
                   ) : (
-                    t('bmi.calculate')
+                    t('calculate')
                   )}
                 </button>
               </div>
@@ -278,10 +244,10 @@ export default function BMI() {
                   {/* BMI Scale */}
                   <div className="bg-white rounded-xl p-4 shadow-sm">
                     <div className="flex justify-between items-center text-xs sm:text-sm font-medium mb-2">
-                      <span className="text-blue-600">{t('bmi.underweight')}</span>
-                      <span className="text-green-600">{t('bmi.normal')}</span>
-                      <span className="text-yellow-600">{t('bmi.overweight')}</span>
-                      <span className="text-red-600">{t('bmi.obese')}</span>
+                      <span className="text-blue-600">{t('underweight')}</span>
+                      <span className="text-green-600">{t('normal')}</span>
+                      <span className="text-yellow-600">{t('overweight')}</span>
+                      <span className="text-red-600">{t('obese')}</span>
                     </div>
                     <div className="relative h-3 bg-gradient-to-r from-blue-400 via-green-400 via-yellow-400 to-red-400 rounded-full">
                       {bmiValue && (
@@ -306,13 +272,13 @@ export default function BMI() {
 
           {/* BMI Information */}
           <div className="mt-8 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">{t('bmi.chart_title')}</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-6">{t('chart_title')}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { range: t('bmi.ranges.underweight'), status: t('bmi.underweight'), color: 'text-blue-600', bgColor: 'bg-blue-50' },
-                { range: t('bmi.ranges.normal'), status: t('bmi.normal'), color: 'text-green-600', bgColor: 'bg-green-50' },
-                { range: t('bmi.ranges.overweight'), status: t('bmi.overweight'), color: 'text-yellow-600', bgColor: 'bg-yellow-50' },
-                { range: t('bmi.ranges.obese'), status: t('bmi.obese'), color: 'text-red-600', bgColor: 'bg-red-50' }
+                { range: t('ranges.underweight'), status: t('underweight'), color: 'text-blue-600', bgColor: 'bg-blue-50' },
+                { range: t('ranges.normal'), status: t('normal'), color: 'text-green-600', bgColor: 'bg-green-50' },
+                { range: t('ranges.overweight'), status: t('overweight'), color: 'text-yellow-600', bgColor: 'bg-yellow-50' },
+                { range: t('ranges.obese'), status: t('obese'), color: 'text-red-600', bgColor: 'bg-red-50' }
               ].map((item, index) => (
                 <div key={index} className={`${item.bgColor} rounded-xl p-4 border border-gray-100`}>
                   <div className="flex items-center justify-between">
@@ -327,12 +293,10 @@ export default function BMI() {
 
             <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
               <p className="text-sm text-gray-700 leading-relaxed">
-                <strong className="text-blue-700">{t('common.note')}:</strong> {t('bmi.note')}
+                <strong className="text-blue-700">주의사항:</strong> {t('note')}
               </p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </CalculatorLayout>
   )
 }

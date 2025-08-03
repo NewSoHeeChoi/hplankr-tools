@@ -1,138 +1,4 @@
 {
-  "homepage": {
-    "title": "Essential Calculator Collection",
-    "subtitle": "Everything in One Place",
-    "description": "Provide professional tools that can accurately and quickly process calculations frequently used in daily life.",
-    "tagline": "Accurate and Fast Calculation Tools",
-    "cta": "Use Calculators",
-    "free": "100% Free",
-    "tools_title": "Professional Calculation Tools",
-    "tools_description": "Each tool is professionally developed considering accuracy and usability"
-  },
-  "calculators": {
-    "bmi": {
-      "title": "BMI Calculator",
-      "description": "Calculate your body mass index accurately and check your health status"
-    },
-    "converter": {
-      "title": "Unit Converter", 
-      "description": "Easily convert various units such as length, weight, temperature"
-    },
-    "percent": {
-      "title": "Percentage Calculator",
-      "description": "Calculate percentages accurately for discounts, increases, ratios"
-    },
-    "age": {
-      "title": "Age Calculator",
-      "description": "Detailed age information including international age and Korean age"
-    },
-    "compound": {
-      "title": "Compound Interest Calculator",
-      "description": "Calculate compound interest effects of investment and savings for financial planning"
-    },
-    "loan": {
-      "title": "Loan Calculator",
-      "description": "Calculate monthly payments and total interest accurately based on loan terms"
-    },
-    "tip": {
-      "title": "Tip Calculator",
-      "description": "Calculate tip and bill splitting easily for dining expenses"
-    },
-    "salary": {
-      "title": "Salary Calculator",
-      "description": "Convert between annual, monthly, and hourly wages with accurate tax and deduction calculations"
-    },
-    "affordability": {
-      "title": "Home Affordability Calculator",
-      "description": "Calculate how much house you can afford based on your income, debt, and down payment"
-    }
-  },
-  "features": {
-    "fast": {
-      "title": "Fast Calculation",
-      "description": "Provide immediate and accurate results with optimized algorithms"
-    },
-    "responsive": {
-      "title": "Responsive Design", 
-      "description": "Works perfectly on all devices: mobile, tablet, desktop"
-    },
-    "privacy": {
-      "title": "Privacy Protection",
-      "description": "All calculations are processed in the browser, keeping your personal information safe"
-    }
-  },
-  "common": {
-    "home": "Home",
-    "back_to_home": "Back to Home",
-    "use": "Use",
-    "calculate": "Calculate",
-    "result": "Result",
-    "input": "Input",
-    "example": "Example",
-    "example_amount": "$100",
-    "example_loan_amount": "$500,000",
-    "guide": "Guide",
-    "tip": "Tip",
-    "note": "Note",
-    "important": "Important",
-    "important_notice": "Important Notice",
-    "investment_tip": "Investment Tip",
-    "validation_error": "Please enter all values correctly",
-    "enter_number": "Please enter a number",
-    "enter_all_values": "Please enter all values",
-    "calculating": "Calculating...",
-    "currency": "USD",
-    "currency_symbol": "$",
-    "years": " years",
-    "months": " months",
-    "or": "or",
-    "ten_million": " ten million",
-    "stock_market_average": "stock market average",
-    "bank_average_rate": "bank average rate",
-    "long_term_investment": "long-term investment",
-    "monthly_regular_investment": "Monthly regular investment",
-    "tools": "Tools",
-    "about": "About",
-    "copyright": "© 2025 HPLankr Tools. All rights reserved."
-  },
-  "units": {
-    "currency": {
-      "symbol": "$",
-      "name": "USD",
-      "code": "USD"
-    },
-    "length": {
-      "primary": "ft",
-      "secondary": "in",
-      "labels": {
-        "mm": "millimeters",
-        "cm": "centimeters", 
-        "m": "meters",
-        "km": "kilometers",
-        "in": "inches",
-        "ft": "feet",
-        "yd": "yards",
-        "mi": "miles"
-      }
-    },
-    "weight": {
-      "primary": "lbs",
-      "secondary": "oz",
-      "labels": {
-        "g": "grams",
-        "kg": "kilograms",
-        "oz": "ounces",
-        "lb": "pounds"
-      }
-    },
-    "temperature": {
-      "primary": "fahrenheit",
-      "labels": {
-        "celsius": "Celsius (°C)",
-        "fahrenheit": "Fahrenheit (°F)"
-      }
-    }
-  },
   "bmi": {
     "title": "BMI Calculator",
     "description": "Enter your height and weight to calculate your Body Mass Index (BMI) and check your health status",
@@ -200,7 +66,7 @@
     "types": {
       "basic": {
         "title": "A% of B Calculation",
-        "description": "25% of 100 = 25",
+        "description": "100% of 25 = 25",
         "example": "100 × 25% = 25"
       },
       "ratio": {
@@ -276,8 +142,7 @@
         "description": "Current year - birth year (regardless of birthday)"
       }
     },
-    "note": "Since June 28, 2023, the official age has been unified to international age. Use international age for legal documents or official purposes.",
-    "note_label": "Note"
+    "note": "Since June 28, 2023, the official age has been unified to international age. Use international age for legal documents or official purposes."
   },
   "compound": {
     "title": "Compound Interest Calculator",
@@ -403,95 +268,5 @@
       }
     },
     "tip": "Tips are an important factor reflecting service quality. Please provide appropriate compensation for good service."
-  },
-  "salary": {
-    "title": "Salary Calculator",
-    "description": "Convert between annual, monthly, and hourly wages with accurate tax and deduction calculations",
-    "calculation_types": "Calculation Types",
-    "types": {
-      "annual_to_monthly": {
-        "title": "Annual → Monthly",
-        "description": "Convert annual salary to monthly"
-      },
-      "hourly_to_monthly": {
-        "title": "Hourly → Monthly",
-        "description": "Convert hourly wage to monthly"
-      },
-      "monthly_to_annual": {
-        "title": "Monthly → Annual",
-        "description": "Convert monthly salary to annual"
-      },
-      "hourly_to_annual": {
-        "title": "Hourly → Annual",
-        "description": "Convert hourly wage to annual"
-      }
-    },
-    "input_title": "Salary Information",
-    "annual_salary": "Annual Salary",
-    "monthly_salary": "Monthly Salary",
-    "hourly_wage": "Hourly Wage",
-    "work_hours": "Weekly Work Hours",
-    "work_days": "Monthly Work Days",
-    "result_title": "Calculation Result",
-    "result_placeholder": "Enter salary information and calculate",
-    "gross_pay": "Gross Pay",
-    "net_pay": "Net Pay",
-    "deductions": "Deductions",
-    "federal_tax": "Federal Tax",
-    "state_tax": "State Tax",
-    "social_security": "Social Security",
-    "medicare": "Medicare",
-    "total_deductions": "Total Deductions",
-    "calculate": "Calculate Salary",
-    "guide_title": "Salary Calculation Guide",
-    "guide_items": {
-      "accurate": {
-        "title": "Accurate Calculation",
-        "description": "Calculate accurate take-home pay using current tax rates and deduction rates."
-      },
-      "taxes": {
-        "title": "Tax Calculation",
-        "description": "Automatically calculate federal tax, state tax, and FICA taxes for accurate results."
-      },
-      "flexible": {
-        "title": "Flexible Conversion",
-        "description": "Convert between different pay periods: annual, monthly, weekly, and hourly wages."
-      }
-    },
-    "note": "This calculator provides estimates based on standard tax rates and deductions. Actual take-home pay may vary based on specific circumstances, benefits, and local tax laws."
-  },
-  "affordability": {
-    "title": "Home Affordability Calculator",
-    "description": "Calculate how much house you can afford based on your income, debt, and down payment",
-    "input_title": "Income and Debt Information",
-    "annual_income": "Annual Gross Income",
-    "monthly_debt": "Monthly Debt Payments",
-    "down_payment": "Down Payment",
-    "interest_rate": "Mortgage Interest Rate (%)",
-    "loan_term": "Loan Term (years)",
-    "result_title": "Affordability Analysis",
-    "result_placeholder": "Enter your income and debt information to calculate",
-    "max_home_price": "Maximum Home Price",
-    "max_loan_amount": "Maximum Loan Amount",
-    "monthly_payment": "Monthly Payment",
-    "debt_to_income": "Debt-to-Income Ratio (DTI)",
-    "loan_to_value": "Loan-to-Value Ratio (LTV)",
-    "calculate": "Calculate Affordability",
-    "guide_title": "Home Affordability Guide",
-    "guide_items": {
-      "dti": {
-        "title": "Debt-to-Income (DTI)",
-        "description": "Your total debt payments should not exceed 43% of your gross monthly income for most loan programs."
-      },
-      "ltv": {
-        "title": "Loan-to-Value (LTV)",
-        "description": "Most lenders require a down payment of at least 3-20% of the home's purchase price."
-      },
-      "emergency": {
-        "title": "Emergency Fund",
-        "description": "Maintain 3-6 months of expenses in emergency savings after your home purchase."
-      }
-    },
-    "note": "This calculator provides estimates only. Actual loan approval depends on credit score, employment history, and other qualifying factors."
   }
 }

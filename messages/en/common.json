@@ -1,0 +1,72 @@
+{
+  "home": "Home",
+  "back_to_home": "Back to Home",
+  "use": "Use",
+  "calculate": "Calculate",
+  "result": "Result",
+  "input": "Input",
+  "example": "Example",
+  "guide": "Guide",
+  "tip": "Tip",
+  "note": "Note",
+  "important": "Important",
+  "important_notice": "Important Notice",
+  "investment_tip": "Investment Tip",
+  "validation_error": "Please enter all values correctly",
+  "enter_number": "Please enter a number",
+  "enter_all_values": "Please enter all values",
+  "calculating": "Calculating...",
+  "currency": "USD",
+  "currency_symbol": "$",
+  "years": " years",
+  "months": " months",
+  "or": "or",
+  "ten_million": " ten million",
+  "stock_market_average": "stock market average",
+  "bank_average_rate": "bank average rate",
+  "long_term_investment": "long-term investment",
+  "monthly_regular_investment": "Monthly regular investment",
+  "tools": "Tools",
+  "about": "About",
+  "copyright": "© 2025 HPLankr Tools. All rights reserved.",
+  "currency": "USD",
+  "result": "Result",
+  "units": {
+    "currency": {
+      "symbol": "$",
+      "name": "USD",
+      "code": "USD"
+    },
+    "length": {
+      "primary": "ft",
+      "secondary": "in",
+      "labels": {
+        "mm": "millimeters",
+        "cm": "centimeters", 
+        "m": "meters",
+        "km": "kilometers",
+        "in": "inches",
+        "ft": "feet",
+        "yd": "yards",
+        "mi": "miles"
+      }
+    },
+    "weight": {
+      "primary": "lbs",
+      "secondary": "oz",
+      "labels": {
+        "g": "grams",
+        "kg": "kilograms",
+        "oz": "ounces",
+        "lb": "pounds"
+      }
+    },
+    "temperature": {
+      "primary": "fahrenheit",
+      "labels": {
+        "celsius": "Celsius (°C)",
+        "fahrenheit": "Fahrenheit (°F)"
+      }
+    }
+  }
+}

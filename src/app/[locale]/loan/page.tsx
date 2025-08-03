@@ -2,17 +2,18 @@
 
 import { useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
-import { Link } from '@/i18n/routing'
 import { formatCurrency } from '@/lib/localization'
-import LanguageSwitcher from '@/components/LanguageSwitcher'
+import CalculatorLayout from '@/components/shared/CalculatorLayout'
 
 export default function LoanCalculator() {
-  const t = useTranslations()
+  const t = useTranslations('loan')
+  const tc = useTranslations('common')
   const locale = useLocale() as 'ko' | 'en'
   const [loanAmount, setLoanAmount] = useState('')
   const [interestRate, setInterestRate] = useState('')
   const [loanTerm, setLoanTerm] = useState('')
   const [termUnit, setTermUnit] = useState('years') // years or months
+  const [selectedLoanType, setSelectedLoanType] = useState<string | null>(null)
   const [result, setResult] = useState<{
     error?: string;
     monthlyPayment?: number;
@@ -31,7 +32,7 @@ export default function LoanCalculator() {
     const termValue = parseFloat(loanTerm)
 
     if (!principal || !annualRate || !termValue || principal <= 0 || annualRate < 0 || termValue <= 0) {
-      setResult({ error: t('common.validation_error') })
+      setResult({ error: 'Validation Error' })
       return
     }
 
@@ -65,64 +66,126 @@ export default function LoanCalculator() {
     })
   }
 
+  // 각 대출 유형별 기본값 정의
+  const loanTypeDefaults = {
+    personal: {
+      amount: locale === 'ko' ? '10000000' : '15000',
+      rate: '12.5',
+      term: '5',
+      unit: 'years' as const
+    },
+    mortgage: {
+      amount: locale === 'ko' ? '300000000' : '400000', 
+      rate: '4.2',
+      term: '25',
+      unit: 'years' as const
+    },
+    auto: {
+      amount: locale === 'ko' ? '30000000' : '35000',
+      rate: '6.8', 
+      term: '5',
+      unit: 'years' as const
+    },
+    business: {
+      amount: locale === 'ko' ? '50000000' : '75000',
+      rate: '8.5',
+      term: '7', 
+      unit: 'years' as const
+    }
+  }
+
   const loanTypes = [
-    { key: 'personal', label: t('loan.loan_types.personal.title'), desc: t('loan.loan_types.personal.description'), icon: '👤' },
-    { key: 'mortgage', label: t('loan.loan_types.mortgage.title'), desc: t('loan.loan_types.mortgage.description'), icon: '🏠' },
-    { key: 'auto', label: t('loan.loan_types.auto.title'), desc: t('loan.loan_types.auto.description'), icon: '🚗' },
-    { key: 'business', label: t('loan.loan_types.business.title'), desc: t('loan.loan_types.business.description'), icon: '💼' }
+    { 
+      key: 'personal', 
+      label: t('loan_types.personal.title'), 
+      desc: t('loan_types.personal.description'), 
+      icon: '👤',
+      rateRange: locale === 'ko' ? '8-15%' : '8-15%',
+      termRange: locale === 'ko' ? '1-7년' : '1-7 years'
+    },
+    { 
+      key: 'mortgage', 
+      label: t('loan_types.mortgage.title'), 
+      desc: t('loan_types.mortgage.description'), 
+      icon: '🏠',
+      rateRange: locale === 'ko' ? '3-5%' : '3-5%', 
+      termRange: locale === 'ko' ? '10-30년' : '10-30 years'
+    },
+    { 
+      key: 'auto', 
+      label: t('loan_types.auto.title'), 
+      desc: t('loan_types.auto.description'), 
+      icon: '🚗',
+      rateRange: locale === 'ko' ? '4-8%' : '4-8%',
+      termRange: locale === 'ko' ? '3-7년' : '3-7 years'
+    },
+    { 
+      key: 'business', 
+      label: t('loan_types.business.title'), 
+      desc: t('loan_types.business.description'), 
+      icon: '💼',
+      rateRange: locale === 'ko' ? '5-12%' : '5-12%',
+      termRange: locale === 'ko' ? '1-10년' : '1-10 years'
+    }
   ]
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">H</span>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                HPLankr Tools
-              </span>
-            </Link>
-            <nav className="flex items-center space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">
-                ← {t('common.back_to_home')}
-              </Link>
-              <LanguageSwitcher />
-            </nav>
-          </div>
-        </div>
-      </header>
+  // 대출 유형 선택 핸들러
+  const handleLoanTypeSelect = (loanType: string) => {
+    setSelectedLoanType(loanType)
+    const defaults = loanTypeDefaults[loanType as keyof typeof loanTypeDefaults]
+    if (defaults) {
+      setLoanAmount(defaults.amount)
+      setInterestRate(defaults.rate)
+      setLoanTerm(defaults.term)
+      setTermUnit(defaults.unit)
+      setResult(null) // 결과 초기화
+    }
+  }
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="max-w-4xl mx-auto">
-          {/* Page Header */}
-          <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-2xl text-white text-2xl mb-6 shadow-lg">
-              💳
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              {t('loan.title')}
-            </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {t('loan.description')}
-            </p>
-          </div>
+  return (
+    <CalculatorLayout
+      title={t('title')}
+      description={t('description')}
+      icon="💳"
+      colorScheme="indigo"
+    >
+      <div className="max-w-4xl mx-auto">
 
           {/* Loan Type Cards */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-6 text-center">{t('loan.loan_types_title')}</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-6 text-center">{t('loan_types_title')}</h3>
+            <p className="text-sm text-gray-600 text-center mb-6">{locale === 'ko' ? '대출 유형을 선택하면 해당 유형에 맞는 기본값이 자동으로 설정됩니다' : 'Default values for the loan type will be automatically set when you select a loan type'}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {loanTypes.map(({ key, label, desc, icon }) => (
-                <div key={key} className="bg-white rounded-xl p-4 border border-gray-100 hover:shadow-md transition-shadow">
+              {loanTypes.map(({ key, label, desc, icon, rateRange, termRange }) => (
+                <button
+                  key={key}
+                  onClick={() => handleLoanTypeSelect(key)}
+                  className={`bg-white rounded-xl p-4 border-2 transition-all duration-200 text-left hover:shadow-lg transform hover:-translate-y-1 ${
+                    selectedLoanType === key
+                      ? 'border-indigo-500 bg-gradient-to-r from-indigo-50 to-blue-50 shadow-lg'
+                      : 'border-gray-100 hover:border-indigo-300'
+                  }`}
+                >
                   <div className="text-2xl mb-2 text-center">{icon}</div>
                   <div className="text-center">
                     <div className="font-semibold text-gray-800 mb-1">{label}</div>
-                    <div className="text-sm text-gray-600">{desc}</div>
+                    <div className="text-sm text-gray-600 mb-2">{desc}</div>
+                    <div className="text-xs text-indigo-600 font-medium">
+                      <div>{locale === 'ko' ? '이자율' : 'Rate'}: {rateRange}</div>
+                      <div>{locale === 'ko' ? '기간' : 'Term'}: {termRange}</div>
+                    </div>
                   </div>
-                </div>
+                  {selectedLoanType === key && (
+                    <div className="mt-2 text-center">
+                      <div className="inline-flex items-center px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">
+                        <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {locale === 'ko' ? '선택됨' : 'Selected'}
+                      </div>
+                    </div>
+                  )}
+                </button>
               ))}
             </div>
           </div>
@@ -133,12 +196,12 @@ export default function LoanCalculator() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Input Section */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('loan.input_title')}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('input_title')}</h3>
                   
                   {/* Loan Amount */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      {t('loan.loan_amount')} ({t('common.currency')})
+                      {t('loan_amount')}
                     </label>
                     <input
                       type="number"
@@ -148,14 +211,14 @@ export default function LoanCalculator() {
                       className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors text-lg font-medium"
                     />
                     <div className="text-sm text-gray-500 mt-1">
-                      {t('common.example')}: {locale === 'ko' ? '5천만원 (50,000,000)' : '$500,000'}
+                      {tc('example')}: {tc('example_loan_amount')}
                     </div>
                   </div>
 
                   {/* Interest Rate */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      {t('loan.annual_rate')}
+                      {t('annual_rate')}
                     </label>
                     <input
                       type="number"
@@ -165,13 +228,13 @@ export default function LoanCalculator() {
                       placeholder="4.5"
                       className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors text-lg font-medium"
                     />
-                    <div className="text-sm text-gray-500 mt-1">{t('common.example')}: 4.5% ({t('common.bank_average_rate')})</div>
+                    <div className="text-sm text-gray-500 mt-1">{locale === 'ko' ? '예: 4.5%' : 'e.g. 4.5%'}</div>
                   </div>
 
                   {/* Loan Term */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
-                      {t('loan.loan_term')}
+                      {t('loan_term')}
                     </label>
                     <div className="flex space-x-3">
                       <input
@@ -186,17 +249,17 @@ export default function LoanCalculator() {
                         onChange={(e) => setTermUnit(e.target.value)}
                         className="px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors text-lg font-medium bg-white min-w-[100px]"
                       >
-                        <option value="years">{t('loan.years')}</option>
-                        <option value="months">{t('loan.months')}</option>
+                        <option value="years">{t('years')}</option>
+                        <option value="months">{t('months')}</option>
                       </select>
                     </div>
-                    <div className="text-sm text-gray-500 mt-1">{t('common.example')}: 20{t('loan.years')} {t('common.or')} 240{t('loan.months')}</div>
+                    <div className="text-sm text-gray-500 mt-1">{locale === 'ko' ? `예: 20${t('years')} 또는 240${t('months')}` : `e.g. 20${t('years')} or 240${t('months')}`}</div>
                   </div>
                 </div>
 
                 {/* Result Section */}
                 <div className="space-y-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('loan.result_title')}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('result_title')}</h3>
                   
                   {/* Result Display */}
                   <div className="bg-gray-50 rounded-xl p-6 min-h-[20rem]">
@@ -216,7 +279,7 @@ export default function LoanCalculator() {
                               {formatCurrency(Math.round(result.monthlyPayment || 0), locale)} / {locale === 'ko' ? '월' : 'month'}
                             </div>
                             <div className="text-sm text-gray-600">
-                              {t('loan.monthly_payment')}
+                              {t('monthly_payment')}
                             </div>
                           </div>
 
@@ -224,7 +287,7 @@ export default function LoanCalculator() {
                           <div className="grid grid-cols-1 gap-4">
                             <div className="bg-white rounded-lg p-4 border border-gray-200">
                               <div className="flex items-center justify-between">
-                                <span className="text-sm font-medium text-gray-600">{t('loan.loan_principal')}</span>
+                                <span className="text-sm font-medium text-gray-600">{t('loan_principal')}</span>
                                 <span className="text-lg font-bold text-gray-700">
                                   {formatCurrency(result.loanDetails?.principal || 0, locale)}
                                 </span>
@@ -233,7 +296,7 @@ export default function LoanCalculator() {
                             
                             <div className="bg-white rounded-lg p-4 border border-gray-200">
                               <div className="flex items-center justify-between">
-                                <span className="text-sm font-medium text-gray-600">{t('loan.total_payment')}</span>
+                                <span className="text-sm font-medium text-gray-600">{t('total_payment')}</span>
                                 <span className="text-lg font-bold text-orange-600">
                                   {formatCurrency(Math.round(result.totalAmount || 0), locale)}
                                 </span>
@@ -242,7 +305,7 @@ export default function LoanCalculator() {
 
                             <div className="bg-white rounded-lg p-4 border border-gray-200">
                               <div className="flex items-center justify-between">
-                                <span className="text-sm font-medium text-gray-600">{t('loan.total_interest')}</span>
+                                <span className="text-sm font-medium text-gray-600">{t('total_interest')}</span>
                                 <span className="text-lg font-bold text-red-600">
                                   {formatCurrency(Math.round(result.totalInterest || 0), locale)}
                                 </span>
@@ -251,9 +314,9 @@ export default function LoanCalculator() {
 
                             <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg p-4 border border-indigo-200">
                               <div className="flex items-center justify-between">
-                                <span className="text-sm font-medium text-indigo-700">{t('loan.loan_period')}</span>
+                                <span className="text-sm font-medium text-indigo-700">{t('loan_period')}</span>
                                 <span className="text-lg font-bold text-indigo-600">
-                                  {result.loanDetails?.termMonths}{t('loan.months')}
+                                  {result.loanDetails?.termMonths}{t('months')}
                                 </span>
                               </div>
                             </div>
@@ -264,7 +327,7 @@ export default function LoanCalculator() {
                       <div className="flex items-center justify-center h-full">
                         <div className="text-center text-gray-400">
                           <div className="text-4xl mb-4">💳</div>
-                          <div>{t('loan.result_placeholder')}</div>
+                          <div>{t('result_placeholder')}</div>
                         </div>
                       </div>
                     )}
@@ -279,7 +342,7 @@ export default function LoanCalculator() {
                   className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all duration-200 font-semibold text-lg transform hover:-translate-y-0.5 shadow-lg"
                 >
                   <span className="flex items-center space-x-2">
-                    <span>{t('loan.calculate')}</span>
+                    <span>{t('calculate')}</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
@@ -291,25 +354,25 @@ export default function LoanCalculator() {
 
           {/* Information Section */}
           <div className="mt-8 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">{t('loan.guide_title')}</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-6">{t('guide_title')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
                   icon: '📊',
-                  title: t('loan.guide_items.accurate.title'),
-                  description: t('loan.guide_items.accurate.description'),
+                  title: t('guide_items.accurate.title'),
+                  description: t('guide_items.accurate.description'),
                   color: 'indigo'
                 },
                 {
                   icon: '💰',
-                  title: t('loan.guide_items.save.title'),
-                  description: t('loan.guide_items.save.description'),
+                  title: t('guide_items.save.title'),
+                  description: t('guide_items.save.description'),
                   color: 'green'
                 },
                 {
                   icon: '⏰',
-                  title: t('loan.guide_items.plan.title'),
-                  description: t('loan.guide_items.plan.description'),
+                  title: t('guide_items.plan.title'),
+                  description: t('guide_items.plan.description'),
                   color: 'blue'
                 }
               ].map((item, index) => {
@@ -334,13 +397,12 @@ export default function LoanCalculator() {
 
             <div className="mt-6 p-4 bg-yellow-50 rounded-xl border border-yellow-100">
               <p className="text-sm text-gray-700 leading-relaxed">
-                <strong className="text-yellow-700">💡 {t('common.important_notice')}:</strong> 
-                {t('loan.note')}
+                <strong className="text-yellow-700">💡 {locale === 'ko' ? '중요사항' : 'Important'}:</strong> 
+                {t('note')}
               </p>
             </div>
           </div>
-        </div>
       </div>
-    </div>
+    </CalculatorLayout>
   )
 }

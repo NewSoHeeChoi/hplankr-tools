@@ -1,0 +1,8 @@
+# ads.txt file for tools.hplankr.com
+# Google AdSense
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# 추가 광고 네트워크가 있다면 여기에 추가
+# 예시:
+# facebook.com, YOUR_FB_BUSINESS_ID, DIRECT
+# amazon-adsystem.com, YOUR_AMAZON_ID, DIRECT

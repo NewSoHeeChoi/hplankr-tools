@@ -26,7 +26,7 @@ npm run dev
 ```
 
 ### 4. 브라우저에서 확인
-- http://localhost:3000 접속
+- (http://localhost:3000) 접속
 - 다국어 계산기 도구 사용 가능
 
 ## 🔧 개발 환경 설정

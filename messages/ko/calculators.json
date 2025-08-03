@@ -1,138 +1,4 @@
 {
-  "homepage": {
-    "title": "필수 계산기 모음",
-    "subtitle": "모든 것을 한 곳에서",
-    "description": "일상에서 자주 사용하는 계산을 정확하고 빠르게 처리할 수 있는 전문적인 도구들을 제공합니다.",
-    "tagline": "정확하고 빠른 계산 도구",
-    "cta": "계산기 사용하기",
-    "free": "100% 무료 사용",
-    "tools_title": "프로페셔널 계산 도구",
-    "tools_description": "각 도구는 정확성과 사용성을 고려하여 전문적으로 개발되었습니다"
-  },
-  "calculators": {
-    "bmi": {
-      "title": "BMI 계산기",
-      "description": "체질량지수를 정확하게 계산하고 건강 상태를 확인하세요"
-    },
-    "converter": {
-      "title": "단위 변환기",
-      "description": "길이, 무게, 온도 등 다양한 단위를 간편하게 변환하세요"
-    },
-    "percent": {
-      "title": "퍼센트 계산기",
-      "description": "할인율, 증가율, 비율 등 퍼센트 계산을 정확하게"
-    },
-    "age": {
-      "title": "나이 계산기",
-      "description": "만 나이, 세는 나이를 포함한 상세한 나이 정보 제공"
-    },
-    "compound": {
-      "title": "복리 계산기",
-      "description": "투자와 저축의 복리 효과를 계산하여 재정 계획을 세우세요"
-    },
-    "loan": {
-      "title": "대출 계산기",
-      "description": "대출 조건에 따른 월 상환금액과 총 이자를 정확하게 계산"
-    },
-    "tip": {
-      "title": "팁 계산기",
-      "description": "음식값과 팁을 계산하여 더치페이까지 간편하게"
-    },
-    "salary": {
-      "title": "급여 계산기",
-      "description": "연봉, 월급, 시급을 변환하고 세전/세후 급여와 4대보험을 정확하게 계산하세요"
-    },
-    "affordability": {
-      "title": "주택 구매력 계산기",
-      "description": "소득과 부채를 기반으로 구매 가능한 주택 가격과 대출 한도를 계산하세요"
-    }
-  },
-  "features": {
-    "fast": {
-      "title": "빠른 계산",
-      "description": "최적화된 알고리즘으로 즉시 정확한 결과를 제공합니다"
-    },
-    "responsive": {
-      "title": "반응형 디자인",
-      "description": "모바일, 태블릿, 데스크톱 모든 기기에서 완벽하게 작동합니다"
-    },
-    "privacy": {
-      "title": "개인정보 보호",
-      "description": "모든 계산은 브라우저에서 처리되어 개인정보가 안전합니다"
-    }
-  },
-  "common": {
-    "home": "홈",
-    "back_to_home": "홈으로",
-    "use": "사용하기",
-    "calculate": "계산하기",
-    "result": "결과",
-    "input": "입력",
-    "example": "예",
-    "example_amount": "₩50,000",
-    "example_loan_amount": "5천만원 (50,000,000)",
-    "guide": "가이드",
-    "tip": "팁",
-    "note": "참고사항",
-    "important": "중요 안내",
-    "important_notice": "중요 안내",
-    "investment_tip": "투자 팁",
-    "validation_error": "모든 값을 올바르게 입력해주세요",
-    "enter_number": "숫자를 입력해주세요",
-    "enter_all_values": "모든 값을 입력해주세요",
-    "calculating": "계산 중...",
-    "currency": "원",
-    "currency_symbol": "₩",
-    "years": "년",
-    "months": "개월",
-    "or": "또는",
-    "ten_million": "천만",
-    "stock_market_average": "주식시장 평균",
-    "bank_average_rate": "은행 평균 금리",
-    "long_term_investment": "장기 투자",
-    "monthly_regular_investment": "매월 정기 투자금",
-    "tools": "도구",
-    "about": "소개",
-    "copyright": "© 2025 HPLankr Tools. 모든 권리 보유."
-  },
-  "units": {
-    "currency": {
-      "symbol": "₩",
-      "name": "원",
-      "code": "KRW"
-    },
-    "length": {
-      "primary": "cm",
-      "secondary": "m",
-      "labels": {
-        "mm": "밀리미터",
-        "cm": "센티미터", 
-        "m": "미터",
-        "km": "킬로미터",
-        "in": "인치",
-        "ft": "피트",
-        "yd": "야드",
-        "mi": "마일"
-      }
-    },
-    "weight": {
-      "primary": "kg",
-      "secondary": "g",
-      "labels": {
-        "g": "그램",
-        "kg": "킬로그램",
-        "oz": "온스",
-        "lb": "파운드"
-      }
-    },
-    "temperature": {
-      "primary": "celsius",
-      "labels": {
-        "celsius": "섭씨 (°C)",
-        "fahrenheit": "화씨 (°F)"
-      }
-    }
-  },
   "bmi": {
     "title": "BMI 계산기",
     "description": "키와 몸무게를 입력하여 체질량지수(BMI)를 계산하고 건강 상태를 확인하세요",
@@ -276,8 +142,7 @@
         "description": "현재년도 - 출생년도 (생일 무관)"
       }
     },
-    "note": "2023년 6월 28일부터 공식 나이는 만 나이로 통일되었습니다. 법적 문서나 공식적인 용도에는 만 나이를 사용하세요.",
-    "note_label": "주의사항"
+    "note": "2023년 6월 28일부터 공식 나이는 만 나이로 통일되었습니다. 법적 문서나 공식적인 용도에는 만 나이를 사용하세요."
   },
   "compound": {
     "title": "복리 계산기",
@@ -371,8 +236,7 @@
         "description": "월 상환 능력을 고려하여 적절한 대출 기간을 설정하세요."
       }
     },
-    "note": "본 계산기는 참고용으로 실제 대출 조건은 금융기관마다 다를 수 있습니다. 정확한 정보는 해당 금융기관에 문의하시기 바랍니다.",
-    "note_label": "주의사항"
+    "note": "본 계산기는 참고용으로 실제 대출 조건은 금융기관마다 다를 수 있습니다. 정확한 정보는 해당 금융기관에 문의하시기 바랍니다."
   },
   "tip": {
     "title": "팁 계산기",
@@ -404,96 +268,5 @@
       }
     },
     "tip": "팁은 서비스 품질을 반영하는 중요한 요소입니다. 좋은 서비스에는 적절한 보상을 해주세요."
-  },
-  "salary": {
-    "title": "급여 계산기",
-    "description": "연봉, 월급, 시급을 변환하고 실수령액과 4대보험을 정확하게 계산하세요",
-    "calculation_types": "계산 유형",
-    "types": {
-      "annual_to_monthly": {
-        "title": "연봉 → 월급",
-        "description": "연봉을 월급으로 변환"
-      },
-      "hourly_to_monthly": {
-        "title": "시급 → 월급",
-        "description": "시급을 월급으로 변환"
-      },
-      "monthly_to_annual": {
-        "title": "월급 → 연봉",
-        "description": "월급을 연봉으로 변환"
-      },
-      "hourly_to_annual": {
-        "title": "시급 → 연봉",
-        "description": "시급을 연봉으로 변환"
-      }
-    },
-    "input_title": "급여 정보 입력",
-    "annual_salary": "연봉 (원)",
-    "monthly_salary": "월급 (원)",
-    "hourly_wage": "시급 (원)",
-    "work_hours": "주 근무시간",
-    "work_days": "월 근무일수",
-    "result_title": "계산 결과",
-    "result_placeholder": "급여 정보를 입력하고 계산해보세요",
-    "gross_pay": "세전 급여",
-    "net_pay": "실수령액",
-    "deductions": "공제 내역",
-    "national_pension": "국민연금",
-    "health_insurance": "건강보험",
-    "employment_insurance": "고용보험",
-    "income_tax": "소득세",
-    "local_tax": "지방소득세",
-    "total_deductions": "총 공제액",
-    "calculate": "급여 계산하기",
-    "guide_title": "급여 계산 가이드",
-    "guide_items": {
-      "accurate": {
-        "title": "정확한 계산",
-        "description": "2024년 기준 4대보험률과 소득세율을 적용한 정확한 실수령액을 계산합니다."
-      },
-      "insurance": {
-        "title": "4대보험",
-        "description": "국민연금, 건강보험, 고용보험료를 자동으로 계산하여 표시합니다."
-      },
-      "tax": {
-        "title": "세금 계산",
-        "description": "소득세와 지방소득세를 포함한 실제 세후 급여를 확인할 수 있습니다."
-      }
-    },
-    "note": "본 계산기는 2024년 기준 세율과 보험료율을 적용한 참고용입니다. 실제 급여는 회사별 복리후생이나 기타 공제항목에 따라 차이가 있을 수 있습니다."
-  },
-  "affordability": {
-    "title": "주택 구매력 계산기",
-    "description": "소득과 부채를 기반으로 구매 가능한 주택 가격과 대출 한도를 정확하게 계산하세요",
-    "input_title": "소득 및 부채 정보",
-    "annual_income": "연간 총소득 (원)",
-    "monthly_debt": "월 부채 상환액 (원)",
-    "down_payment": "다운페이먼트 (원)",
-    "interest_rate": "주택담보대출 금리 (%)",
-    "loan_term": "대출 기간 (년)",
-    "result_title": "구매력 분석",
-    "result_placeholder": "소득과 부채 정보를 입력하고 계산해보세요",
-    "max_home_price": "최대 구매 가능 주택 가격",
-    "max_loan_amount": "최대 대출 가능 금액",
-    "monthly_payment": "월 상환금액",
-    "debt_to_income": "부채비율 (DTI)",
-    "loan_to_value": "주택담보인정비율 (LTV)",
-    "calculate": "구매력 계산하기",
-    "guide_title": "주택 구매력 가이드",
-    "guide_items": {
-      "dti": {
-        "title": "부채비율 (DTI)",
-        "description": "총 부채 상환액이 소득의 40% 이하로 유지되어야 안전한 주택구매가 가능합니다."
-      },
-      "ltv": {
-        "title": "담보비율 (LTV)",
-        "description": "주택담보대출은 주택가격의 70-80% 이하로 제한되므로 충분한 다운페이먼트가 필요합니다."
-      },
-      "emergency": {
-        "title": "비상자금",
-        "description": "주택구매 후에도 월 생활비의 3-6개월분 비상자금을 보유하는 것이 중요합니다."
-      }
-    },
-    "note": "본 계산기는 참고용이며, 실제 대출 승인은 신용등급, 재직기간, 기타 조건에 따라 달라질 수 있습니다."
   }
 }

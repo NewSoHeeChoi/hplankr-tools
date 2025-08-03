@@ -1,0 +1,72 @@
+{
+  "home": "홈",
+  "back_to_home": "홈으로",
+  "use": "사용하기",
+  "calculate": "계산하기",
+  "result": "결과",
+  "input": "입력",
+  "example": "예",
+  "guide": "가이드",
+  "tip": "팁",
+  "note": "참고사항",
+  "important": "중요 안내",
+  "important_notice": "중요 안내",
+  "investment_tip": "투자 팁",
+  "validation_error": "모든 값을 올바르게 입력해주세요",
+  "enter_number": "숫자를 입력해주세요",
+  "enter_all_values": "모든 값을 입력해주세요",
+  "calculating": "계산 중...",
+  "currency": "원",
+  "currency_symbol": "₩",
+  "years": "년",
+  "months": "개월",
+  "or": "또는",
+  "ten_million": "천만",
+  "stock_market_average": "주식시장 평균",
+  "bank_average_rate": "은행 평균 금리",
+  "long_term_investment": "장기 투자",
+  "monthly_regular_investment": "매월 정기 투자금",
+  "tools": "도구",
+  "about": "소개",
+  "copyright": "© 2025 HPLankr Tools. 모든 권리 보유.",
+  "currency": "원",
+  "result": "결과",
+  "units": {
+    "currency": {
+      "symbol": "₩",
+      "name": "원",
+      "code": "KRW"
+    },
+    "length": {
+      "primary": "cm",
+      "secondary": "m",
+      "labels": {
+        "mm": "밀리미터",
+        "cm": "센티미터", 
+        "m": "미터",
+        "km": "킬로미터",
+        "in": "인치",
+        "ft": "피트",
+        "yd": "야드",
+        "mi": "마일"
+      }
+    },
+    "weight": {
+      "primary": "kg",
+      "secondary": "g",
+      "labels": {
+        "g": "그램",
+        "kg": "킬로그램",
+        "oz": "온스",
+        "lb": "파운드"
+      }
+    },
+    "temperature": {
+      "primary": "celsius",
+      "labels": {
+        "celsius": "섭씨 (°C)",
+        "fahrenheit": "화씨 (°F)"
+      }
+    }
+  }
+}
