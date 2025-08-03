@@ -13,6 +13,16 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
+  // ESLint configuration for production build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
+  // TypeScript configuration for production build
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],

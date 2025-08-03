@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     routes.push({
       url: `${baseUrl}/ko/${calc}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
     })
   })
@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     routes.push({
       url: `${baseUrl}/en/${calc}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
     })
   })

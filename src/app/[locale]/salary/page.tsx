@@ -219,7 +219,7 @@ export default function Salary() {
       title={t('title')}
       description={t('description')}
       icon="💼"
-      colorScheme="amber"
+      colorScheme="indigo"
     >
       {/* Calculation Type Selection */}
       <div className="mb-8">

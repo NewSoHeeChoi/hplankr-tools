@@ -73,7 +73,7 @@ export default function Affordability() {
       title={t('title')}
       description={t('description')}
       icon="🏠"
-      colorScheme="teal"
+      colorScheme="emerald"
     >
       {/* Calculator Card */}
       <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
