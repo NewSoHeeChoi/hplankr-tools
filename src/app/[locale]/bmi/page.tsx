@@ -5,6 +5,8 @@ import { useTranslations, useLocale } from 'next-intl'
 import { feetInchesToCm, lbsToKg } from '@/lib/localization'
 import CalculatorLayout from '@/components/shared/CalculatorLayout'
 
+// 메타데이터는 서버 컴포넌트에서만 가능하므로 별도 파일 필요
+
 export default function BMI() {
   const t = useTranslations('bmi')
   const tc = useTranslations('common')

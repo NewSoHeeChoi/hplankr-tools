@@ -1,6 +1,7 @@
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/routing';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import StructuredData from '@/components/StructuredData';
 import dynamic from 'next/dynamic';
 
 // Dynamically import non-critical components
@@ -27,7 +28,28 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <>
+      <StructuredData
+        type="WebApplication"
+        name="HPLankr Tools - 무료 온라인 계산기 모음"
+        description="BMI, 대출, 복리이자, 급여, 팁 계산기 등 생활 필수 도구 9개를 제공하는 무료 온라인 계산기 모음"
+        url="https://tools.hplankr.com"
+        applicationCategory="ProductivityApplication"
+        additionalProperties={{
+          mainEntity: {
+            '@type': 'ItemList',
+            numberOfItems: 9,
+            itemListElement: [
+              { '@type': 'SoftwareApplication', name: 'BMI 계산기', url: 'https://tools.hplankr.com/ko/bmi' },
+              { '@type': 'SoftwareApplication', name: '대출 계산기', url: 'https://tools.hplankr.com/ko/loan' },
+              { '@type': 'SoftwareApplication', name: '복리 계산기', url: 'https://tools.hplankr.com/ko/compound' },
+              { '@type': 'SoftwareApplication', name: '급여 계산기', url: 'https://tools.hplankr.com/ko/salary' },
+              { '@type': 'SoftwareApplication', name: '팁 계산기', url: 'https://tools.hplankr.com/ko/tip' }
+            ]
+          }
+        }}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -148,6 +170,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
