@@ -177,7 +177,7 @@
 
 ### 📞 연락처
 - **GitHub**: https://github.com/NewSoHeeChoi/hplankr-tools
-- **사이트**: https://tools.hplankr.com
+- **사이트**: https://calc.hplankr.com
 - **이메일**: (추후 추가)
 
 ---
