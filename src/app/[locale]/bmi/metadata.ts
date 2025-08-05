@@ -8,7 +8,7 @@ export async function generateBMIMetadata(locale: string): Promise<Metadata> {
     openGraph: {
       title: 'BMI 계산기 - 체질량지수 무료 계산',
       description: '키와 몸무게로 BMI 지수를 정확하게 계산하고 비만도를 확인하세요.',
-      url: 'https://tools.hplankr.com/ko/bmi',
+      url: 'https://calc.hplankr.com/ko/bmi',
       siteName: 'HPLankr Tools',
       locale: 'ko_KR',
       type: 'website',
@@ -19,10 +19,10 @@ export async function generateBMIMetadata(locale: string): Promise<Metadata> {
       description: '키와 몸무게로 BMI 지수를 정확하게 계산하고 비만도를 확인하세요.',
     },
     alternates: {
-      canonical: 'https://tools.hplankr.com/ko/bmi',
+      canonical: 'https://calc.hplankr.com/ko/bmi',
       languages: {
-        'ko-KR': 'https://tools.hplankr.com/ko/bmi',
-        'en-US': 'https://tools.hplankr.com/en/bmi'
+        'ko-KR': 'https://calc.hplankr.com/ko/bmi',
+        'en-US': 'https://calc.hplankr.com/en/bmi'
       }
     },
     robots: {
@@ -45,7 +45,7 @@ export async function generateBMIMetadata(locale: string): Promise<Metadata> {
     openGraph: {
       title: 'BMI Calculator - Free Body Mass Index Calculator',
       description: 'Calculate your BMI accurately with height and weight and check your obesity level.',
-      url: 'https://tools.hplankr.com/en/bmi',
+      url: 'https://calc.hplankr.com/en/bmi',
       siteName: 'HPLankr Tools',
       locale: 'en_US',
       type: 'website',
@@ -56,10 +56,10 @@ export async function generateBMIMetadata(locale: string): Promise<Metadata> {
       description: 'Calculate your BMI accurately with height and weight and check your obesity level.',
     },
     alternates: {
-      canonical: 'https://tools.hplankr.com/en/bmi',
+      canonical: 'https://calc.hplankr.com/en/bmi',
       languages: {
-        'ko-KR': 'https://tools.hplankr.com/ko/bmi',
-        'en-US': 'https://tools.hplankr.com/en/bmi'
+        'ko-KR': 'https://calc.hplankr.com/ko/bmi',
+        'en-US': 'https://calc.hplankr.com/en/bmi'
       }
     },
     robots: {

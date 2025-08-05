@@ -32,7 +32,7 @@ export default function StructuredData({
   creator = {
     '@type': 'Organization',
     name: 'HPLankr Tools',
-    url: 'https://tools.hplankr.com'
+    url: 'https://calc.hplankr.com'
   },
   additionalProperties = {}
 }: StructuredDataProps) {

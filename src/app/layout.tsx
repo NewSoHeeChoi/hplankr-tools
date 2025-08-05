@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'HPLankr Tools - 무료 온라인 계산기 도구',
     description: '무료 온라인 계산기 도구 모음 - BMI, 나이, 복리, 환율, 대출, 퍼센트 계산기',
-    url: 'https://tools.hplankr.com',
+    url: 'https://calc.hplankr.com',
     siteName: 'HPLankr Tools',
     type: 'website',
     locale: 'ko_KR'
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: '무료 온라인 계산기 도구 모음 - BMI, 나이, 복리, 환율, 대출, 퍼센트 계산기'
   },
   alternates: {
-    canonical: 'https://tools.hplankr.com'
+    canonical: 'https://calc.hplankr.com'
   }
 }
 

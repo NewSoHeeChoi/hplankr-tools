@@ -33,18 +33,18 @@ export default function Home() {
         type="WebApplication"
         name="HPLankr Tools - 무료 온라인 계산기 모음"
         description="BMI, 대출, 복리이자, 급여, 팁 계산기 등 생활 필수 도구 9개를 제공하는 무료 온라인 계산기 모음"
-        url="https://tools.hplankr.com"
+        url="https://calc.hplankr.com"
         applicationCategory="ProductivityApplication"
         additionalProperties={{
           mainEntity: {
             '@type': 'ItemList',
             numberOfItems: 9,
             itemListElement: [
-              { '@type': 'SoftwareApplication', name: 'BMI 계산기', url: 'https://tools.hplankr.com/ko/bmi' },
-              { '@type': 'SoftwareApplication', name: '대출 계산기', url: 'https://tools.hplankr.com/ko/loan' },
-              { '@type': 'SoftwareApplication', name: '복리 계산기', url: 'https://tools.hplankr.com/ko/compound' },
-              { '@type': 'SoftwareApplication', name: '급여 계산기', url: 'https://tools.hplankr.com/ko/salary' },
-              { '@type': 'SoftwareApplication', name: '팁 계산기', url: 'https://tools.hplankr.com/ko/tip' }
+              { '@type': 'SoftwareApplication', name: 'BMI 계산기', url: 'https://calc.hplankr.com/ko/bmi' },
+              { '@type': 'SoftwareApplication', name: '대출 계산기', url: 'https://calc.hplankr.com/ko/loan' },
+              { '@type': 'SoftwareApplication', name: '복리 계산기', url: 'https://calc.hplankr.com/ko/compound' },
+              { '@type': 'SoftwareApplication', name: '급여 계산기', url: 'https://calc.hplankr.com/ko/salary' },
+              { '@type': 'SoftwareApplication', name: '팁 계산기', url: 'https://calc.hplankr.com/ko/tip' }
             ]
           }
         }}

@@ -43,7 +43,7 @@ export async function generateMetadata({
     openGraph: {
       title: '무료 온라인 계산기 모음 - BMI, 대출, 복리 계산기',
       description: '2025년 최신 무료 온라인 계산기! 생활 필수 도구 9개를 한번에 사용하세요.',
-      url: 'https://tools.hplankr.com/ko',
+      url: 'https://calc.hplankr.com/ko',
       siteName: 'HPLankr Tools',
       locale: 'ko_KR',
       type: 'website',
@@ -54,10 +54,10 @@ export async function generateMetadata({
       description: '2025년 최신 무료 온라인 계산기! BMI, 대출, 복리이자 등 생활 필수 도구.',
     },
     alternates: {
-      canonical: 'https://tools.hplankr.com/ko',
+      canonical: 'https://calc.hplankr.com/ko',
       languages: {
-        'ko-KR': 'https://tools.hplankr.com/ko',
-        'en-US': 'https://tools.hplankr.com/en'
+        'ko-KR': 'https://calc.hplankr.com/ko',
+        'en-US': 'https://calc.hplankr.com/en'
       }
     },
     robots: {
@@ -80,7 +80,7 @@ export async function generateMetadata({
     openGraph: {
       title: 'Free Online Calculator Collection - BMI, Loan, Compound Interest',
       description: '2025 Latest Free Online Calculators! Essential life tools in one place.',
-      url: 'https://tools.hplankr.com/en',
+      url: 'https://calc.hplankr.com/en',
       siteName: 'HPLankr Tools',
       locale: 'en_US',
       type: 'website',
@@ -91,10 +91,10 @@ export async function generateMetadata({
       description: '2025 Latest Free Online Calculators! BMI, loan, compound interest and more essential tools.',
     },
     alternates: {
-      canonical: 'https://tools.hplankr.com/en',
+      canonical: 'https://calc.hplankr.com/en',
       languages: {
-        'ko-KR': 'https://tools.hplankr.com/ko',
-        'en-US': 'https://tools.hplankr.com/en'
+        'ko-KR': 'https://calc.hplankr.com/ko',
+        'en-US': 'https://calc.hplankr.com/en'
       }
     },
     robots: {
