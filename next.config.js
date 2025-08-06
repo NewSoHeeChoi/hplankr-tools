@@ -34,6 +34,11 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['next-intl'],
   },
+
+  // 환경변수 노출 (디버깅용)
+  env: {
+    CUSTOM_BASE_URL: process.env.NODE_ENV === 'production' ? 'https://calc.hplankr.com' : 'http://localhost:3000',
+  },
 };
 
 export default withBundleAnalyzer(withNextIntl(nextConfig));
