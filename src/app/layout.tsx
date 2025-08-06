@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://calc.hplankr.com'
+  },
+  other: {
+    'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION || ''
   }
 }
 
