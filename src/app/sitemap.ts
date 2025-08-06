@@ -1,5 +1,9 @@
 import { MetadataRoute } from 'next'
 
+// Force no caching and immediate revalidation
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   // 강제로 calc.hplankr.com 사용 (환경변수 무시)
   const baseUrl = 'https://calc.hplankr.com'
